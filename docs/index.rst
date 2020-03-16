@@ -10,6 +10,7 @@ Welcome to WDMapp's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   spack/setup
 
 
 Indices and tables
