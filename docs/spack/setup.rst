@@ -36,8 +36,8 @@ Enable shell support for Spack.
   $ setenv SPACK_ROOT /path/to/spack
   $ source $SPACK_ROOT/share/spack/setup-env.csh
 
-Cloning the WDMapp-config repository
-=====================================
+Cloning the ``WDMapp-config`` repository
+========================================
 
 Just clone the repository from `github
 <https://github.com/wdmapp/wdmapp-config/>`_ to the same machine that
