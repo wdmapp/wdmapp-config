@@ -1,0 +1,42 @@
+packages:
+  openssl:
+    paths:
+      openssl@1.0.2p: /usr
+    buildable: False
+
+  spectrum-mpi:
+    paths:
+      spectrum-mpi@10.3.1.2-20200121%gcc@8.1.1: /sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/spectrum-mpi-10.3.1.2-20200121-chae23sgwacfeot7vxkpfboz6wao2c33
+    buildable: false
+
+  fftw:
+    paths:
+      fftw@3.3.8%gcc@8.1.1: /sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/fftw-3.3.8-in2y7enjd3memwrmamnoxvsmx37mse7t
+
+  netlib-lapack:
+    paths:
+      netlib-lapack@3.8.0%gcc@8.1.1: /sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/netlib-lapack-3.8.0-p74bsneivus4jck562lq7drw2s7i4ytd
+
+  netlib-scalapack:
+    paths:
+      netlib-scalapack@2.0.2%gcc@8.1.1: /sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/netlib-scalapack-2.0.2-7x3lv7z2lzfbe5kfwlt2aajkx4hvmgdm
+
+  python:
+    paths:
+      python@3.7.0anaconda: /sw/summit/python/3.7/anaconda3/5.3.0
+
+  cuda:
+    paths:
+      cuda@10.1.243: /sw/summit/cuda/10.1.243
+    buildable: False
+
+  all:
+    compiler: [gcc@8.1.1]
+    providers:
+      mpi: [spectrum-mpi]
+
+#  cmake:
+#    paths:
+#      cmake@3.15.2: /sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/cmake-3.15.2-xit2o3iepxvqbyku77lwcugufilztu7t
+#    buildable: False
+

@@ -1,0 +1,29 @@
+compilers:
+- compiler:
+    spec: gcc@4.8.5
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: rhel7
+    target: ppc64le
+    modules: []
+    environment:
+      unset: []
+    extra_rpaths: []
+- compiler:
+    spec: gcc@8.1.1
+    modules: [gcc/8.1.1]
+    paths:
+      cc: /sw/summit/gcc/8.1.1/bin/gcc
+      cxx: /sw/summit/gcc/8.1.1/bin/g++
+      f77: /sw/summit/gcc/8.1.1/bin/gfortran
+      fc: /sw/summit/gcc/8.1.1/bin/gfortran
+    flags: {}
+    operating_system: rhel7
+    target: ppc64le
+    modules: []
+    environment: {}
+    extra_rpaths: []
