@@ -22,8 +22,15 @@ Follow the instructions from the `Spack Documentation
 
 .. code-block:: sh
 
-   $ git clone https://github.com/spack/spack.git
+   $ git clone -b releases/v0.14 https://github.com/spack/spack.git
    
+.. note::
+
+   v0.14 is the latest spack stable version on 2020-03-17; newer versions
+   will likely work but have not been tested. Using the default 'develop'
+   branch is not recommended, as it does break sometimes and introduces
+   a lot of package version churn if you try to track it.
+
 Enable shell support for Spack.
 
 .. code-block:: sh
@@ -81,7 +88,9 @@ Copy a basic setup for Spack on Summit from the `wdmapp-config
 
 .. warning::
    This will overwrite an existing Spack configuration, so be careful
-   if you've previously set Spack up.
+   if you've previously set Spack up. If you have existing config, consider
+   using path/to/spack/etc/spack/package.yaml for packages instead, and add
+   gcc 8.1.1 to your exising compilers.yaml if not already present.
 
    
 Ubuntu 18.04
