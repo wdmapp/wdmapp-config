@@ -84,3 +84,12 @@ Copy a basic setup for Spack on Summit from the `wdmapp-config
    if you've previously set Spack up.
 
    
+Ubuntu 18.04
+---------------------
+
+On Ubuntu 18.04, nothing special needs to be done, though installation
+can be sped up by adding a ``packages.yaml`` that teaches it about
+system-installed software so that it doesn't have to build everything
+from scratch.
+
+
