@@ -11,6 +11,7 @@ Welcome to WDMapp's documentation!
    :caption: Contents:
 
    spack/setup
+   build/build
 
 
 Indices and tables
