@@ -17,15 +17,21 @@ class Gene(CMakePackage, CudaPackage):
     maintainers = ['germasch', 'bd4']
 
     # FIXME: Add proper versions and checksums here.
-    version('cuda_under_the_hood', git='git@gitlab.mpcdf.mpg.de:GENE/gene-dev.git',
-            branch='cuda_under_the_hood')
+    version('cuda_under_the_hood',
+            git='git@gitlab.mpcdf.mpg.de:GENE/gene-dev.git',
+            branch='cuda_under_the_hood',
+            submodules=True, submodules_delete=['python-diag'])
     version('cuth-wip', git='git@github.com:wdmapp/gene-wip.git',
-            branch='cuth-wip')
+            branch='cuth-wip',
+            submodules=True, submodules_delete=['python-diag'])
 
     variant('pfunit', default=True,
             description='Enable pfunit tests')
     variant('cuda', default=False,
             description='Enable CUDA functionality')
+    variant('perf', default='none', multi=False,
+            description='Enable performance library for timing code regions',
+            values=('perfstubs', 'nvtx', 'ht', 'none'))
 
     depends_on('mpi')
     depends_on('fftw@3.3:')
@@ -36,7 +42,7 @@ class Gene(CMakePackage, CudaPackage):
 
     def cmake_args(self):
         spec = self.spec
-        args = []
+        args = ['-DGENE_PERF={0}'.format(spec.variants['perf'].value)]
         if '+pfunit' in spec:
             args.append('-DPFUNIT={}'.format(spec['pfunit'].prefix))
         if '+cuda' in spec:
