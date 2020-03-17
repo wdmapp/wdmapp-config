@@ -17,10 +17,10 @@ class Gene(CMakePackage, CudaPackage):
     maintainers = ['germasch', 'bd4']
 
     # FIXME: Add proper versions and checksums here.
-    version('cuth-wip', git='git@github.com:wdmapp/gene-wip.git',
-            branch='cuth-wip')
     version('cuda_under_the_hood', git='git@gitlab.mpcdf.mpg.de:GENE/gene-dev.git',
             branch='cuda_under_the_hood')
+    version('cuth-wip', git='git@github.com:wdmapp/gene-wip.git',
+            branch='cuth-wip')
 
     variant('pfunit', default=True,
             description='Enable pfunit tests')
