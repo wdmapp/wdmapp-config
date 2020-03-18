@@ -35,7 +35,7 @@ class Xgc1(CMakePackage):
     # maintainers = ['github_user1', 'github_user2']
 
     # FIXME: Add proper versions and checksums here.
-    version('cmake', git='git@github.com:germasch/xgc1.git', branch='cmake')
+    version('cmake', git='git@github.com:wdmapp/xgc1.git', branch='cmake')
 
     depends_on('petsc@3.7.0:3.7.999')
     depends_on('pkgconfig')
