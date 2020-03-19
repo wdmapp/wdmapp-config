@@ -107,6 +107,13 @@ and add the following to `~/.spack/config.yaml`:
   config:
     build_stage: /gpfs/alpine/scratch/$user/spack-stage
    
+.. note::
+
+   On Summit, the cuda module sets environment variables that set a
+   path which nvcc does not otherwise add. Because of this, it is
+   requried to `module load cuda/10.1.243` before building GENE, and
+   probably other software that uses CUDA..
+  
 Ubuntu 18.04
 ---------------------
 
