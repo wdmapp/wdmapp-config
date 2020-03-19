@@ -11,14 +11,13 @@ class Gene(CMakePackage, CudaPackage):
 
     homepage = "http://genecode.org"
     # FIXME, there is no tarball, but it still needs a URL, so it's fake
-    url = "https://github.com/wdmapp/gene-wip.tar.gz"
-    git = "https://github.com/wdmapp/gene-wip"
+    url      = "https://github.com/wdmapp/gene-wip.tar.gz"
+    git      = "git@gitlab.mpcdf.mpg.de:GENE/gene-dev.git"
 
     maintainers = ['germasch', 'bd4']
 
     # FIXME: Add proper versions and checksums here.
     version('cuda_under_the_hood',
-            git='git@gitlab.mpcdf.mpg.de:GENE/gene-dev.git',
             branch='cuda_under_the_hood',
             submodules=True, submodules_delete=['python-diag'])
     version('cuth-wip', git='git@github.com:wdmapp/gene-wip.git',
@@ -48,7 +47,7 @@ class Gene(CMakePackage, CudaPackage):
         if '+cuda' in spec:
             args.append('-DGPU=ON')
             cuda_arch = spec.variants['cuda_arch'].value
-            if cuda_arch is not None:
-                args.append('-DCUDA_FLAGS=-arch=sm_{0}'.format(cuda_arch[0]))
+            # if cuda_arch is not None:
+            #     args.append('-DCUDA_FLAGS=-arch=sm_{0}'.format(cuda_arch[0]))
 
         return args
