@@ -64,10 +64,6 @@ So then you're all set. Just call ``make``.
   [...]
 
 
-.. note::
-
-  A potential failure might be happening in the unit testing -- the ``pfunit`` Spack package was only recently updated to accept a variant specifying the number of array dimensions required (6 for testing GENE), If you're using an older Spack, like the 0.14 release, this may not yet be supported.
-
 .. todo::
 
   pfunit should depend on ``python`` being available at runtime, but it looks like it does not.
