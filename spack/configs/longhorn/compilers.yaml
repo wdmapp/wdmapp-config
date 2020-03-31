@@ -1,0 +1,69 @@
+compilers:
+- compiler:
+    spec: gcc@4.8.5
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: rhel7
+    target: ppc64le
+    modules: []
+    environment:
+      unset: []
+    extra_rpaths: []
+- compiler:
+    spec: gcc@7.3.0
+    paths:
+      cc: /opt/apps/gcc/7.3.0/bin/gcc
+      cxx: /opt/apps/gcc/7.3.0/bin/g++
+      f77: /opt/apps/gcc/7.3.0/bin/gfortran
+      fc: /opt/apps/gcc/7.3.0/bin/gfortran
+    flags: {}
+    operating_system: rhel7
+    target: ppc64le
+    modules: [gcc/7.3.0]
+    environment: {}
+    extra_rpaths: [/opt/apps/gcc/7.3.0/lib64]
+- compiler:
+    spec: xl@16.1
+    paths:
+      cc: /usr/bin/xlc
+      cxx: /usr/bin/xlc++
+      f77:
+      fc:
+    flags:
+      fflags: -qzerosize
+    operating_system: rhel7
+    target: ppc64le
+    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: xl_r@16.1
+    paths:
+      cc: /usr/bin/xlc_r
+      cxx: /usr/bin/xlC_r
+      f77:
+      fc:
+    flags:
+      fflags: -qzerosize
+    operating_system: rhel7
+    target: ppc64le
+    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: gcc@9.1.0
+    paths:
+      cc: /opt/apps/gcc/9.1.0/bin/gcc
+      cxx: /opt/apps/gcc/9.1.0/bin/g++
+      f77: /opt/apps/gcc/9.1.0/bin/gfortran
+      fc: /opt/apps/gcc/9.1.0/bin/gfortran
+    flags: {}
+    operating_system: rhel7
+    target: ppc64le
+    modules: [gcc/9.1.0]
+    environment: {}
+    extra_rpaths: []

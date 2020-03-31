@@ -1,0 +1,27 @@
+packages:
+  openmpi:
+    variants: +cuda fabrics=verbs
+    buildable: false
+    version: []
+    target: []
+    compiler: []
+    providers: {}
+    paths:
+      openmpi@3.1.2%gcc@7.3.0: /opt/apps/gcc7_3/openmpi/3.1.2
+    modules: {}
+
+  cuda:
+    modules:
+      cuda@10.1: cuda/10.1
+    buildable: false
+    version: []
+    target: []
+    compiler: []
+    providers: {}
+    paths: {}
+  
+  all:
+    providers:
+      mpi: [openmpi]
+      blas: [netlib-lapack]
+      lapack: [netlib-lapack]
