@@ -17,6 +17,7 @@ class Xgc1(CMakePackage):
     maintainers = ['germasch', 'bd4']
 
     version('master', branch='master')
+    version('passThroughCpl', branch='cws/passThroughCpl')
 
     variant('coupling_core_edge', default=False,
             description='Enable XGC_COUPLING_CORE_EDGE')
