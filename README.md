@@ -1,19 +1,21 @@
 
-# WDMapp build configurations etc
+# WDMapp build and run configurations
+
+This repository contains the necessary bits to use  [Spack](https://spack.io) to build
+WDMapp and its constituent codes.
+
+Step-by-step documentation is available at
+https://wdmapp.readthedocs.io/en/latest/.
 
 *This is a work-in-progress!*
 
-## Spack
+## Repository Layout
 
-The initial goal here is to provide the ability to install the pieces that go into WDMapp via [Spack](https://spack.io).
-
-### Configuring Spack
-
-While in theory Spack can build an environment from scratch, in particular on supercomputers it helps to tell Spack about software that's already there, in particular MPI and compilers. Machine-specific configurations are in [spack/configs](spack/configs).
-
-
-### WDMapp Spack packages
-
-This repository provides a Spack package repository that can be added to Spack to provide packages for the codes used within WDMapp. This package repository, named `wdmapp`, is at [spack/wdmapp](spack/wdmapp).
-
+* [bin/](bin): Some useful tools to help with Spack setup on a new
+machine
+* [spack/wdmapp/](spack/wdmapp): An add-on Spack repository which adds
+WDMapp-specific packages
+* [docs/](docs): Sources for the [documentation](https://wdmapp.readthedocs.io/en/latest/).
+* [summit/](summit): Configuration files and job scripts for Summit at OLCF.
+* [longhorn/](longhorn): Configuration files and job scripts for Longhorn at TACC.
 
