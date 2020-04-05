@@ -1,6 +1,11 @@
 
-Building codes
-***************
+.. _build-wdmapp-label:
+
+Building WDMAPP
+***********************
+
+.. todo:: This should focus on WDMapp, and the develop instructions
+	  should possibly move elsewhere.
 
 Standard Installation
 ===========================

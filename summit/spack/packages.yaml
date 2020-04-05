@@ -1,0 +1,26 @@
+packages:
+
+  # concretization preferences
+  all:
+    compiler: [gcc@8.1.1]
+    providers:
+      mpi: [spectrum-mpi]
+
+  # system modules externals. Uses explicit paths rather than the modules
+  # feature of spack, more robust and simpler in some cases.
+  spectrum-mpi:
+    paths:
+      spectrum-mpi@10.3.1.2-20200121%gcc@8.1.1: /sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/spectrum-mpi-10.3.1.2-20200121-chae23sgwacfeot7vxkpfboz6wao2c33
+      spectrum-mpi@10.3.1.2-20200121%pgi@19.9: /sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/pgi-19.9/spectrum-mpi-10.3.1.2-20200121-zy6l7p3w4q2ns7i2zutzng7ex3drw656
+    buildable: false
+
+  cuda:
+    paths:
+      cuda@10.1.243: /sw/summit/cuda/10.1.243
+    buildable: False
+
+  openssl:
+    paths:
+      openssl@1.0.2k: /usr
+    buildable: False
+
