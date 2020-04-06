@@ -24,6 +24,18 @@ compilers:
     flags: {}
     operating_system: rhel7
     target: ppc64le
-    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: pgi@19.9
+    modules: [pgi/19.9]
+    paths:
+      cc: /autofs/nccs-svm1_sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/pgi-19.9-6rlh73dtf3lmbm6v7r3fkh7tnbeq53hc/linuxpower/19.9/bin/pgcc
+      cxx: /autofs/nccs-svm1_sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/pgi-19.9-6rlh73dtf3lmbm6v7r3fkh7tnbeq53hc/linuxpower/19.9/bin/pgc++
+      f77: /autofs/nccs-svm1_sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/pgi-19.9-6rlh73dtf3lmbm6v7r3fkh7tnbeq53hc/linuxpower/19.9/bin/pgfortran
+      fc: /autofs/nccs-svm1_sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/pgi-19.9-6rlh73dtf3lmbm6v7r3fkh7tnbeq53hc/linuxpower/19.9/bin/pgfortran
+    flags: {}
+    operating_system: rhel7
+    target: ppc64le
     environment: {}
     extra_rpaths: []
