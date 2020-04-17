@@ -40,14 +40,8 @@ class Xgc1(CMakePackage):
         spec = self.spec
         args = []
         args += ['-DXGC_CAMTIMERS={}'.format('ON' if '+camtimers' in spec else 'OFF')]
-        if '+coupling_core_edge' in spec:
-            args.append('-DXGC_COUPLING_CORE_EDGE=ON')
-        if '+coupling_core_edge' in spec:
-            args.append('-DXGC_COUPLING_CORE_EDGE=ON')
-        if '+coupling_core_edge_field' in spec:
-            args.append('-DXGC_COUPLING_CORE_EDGE_FIELD=ON')
-        if '+coupling_core_edge_varpi2' in spec:
-            args.append('-DXGC_COUPLING_CORE_EDGE_VARPI2=ON')
-
+        args += ['-DXGC_COUPLING_CORE_EDGE={}'.format('ON' if '+coupling_core_edge' in spec else 'OFF')]
+        args += ['-DXGC_COUPLING_CORE_EDGE_FIELD={}'.format('ON' if '+coupling_core_edge_field' in spec else 'OFF')]
+        args += ['-DXGC_COUPLING_CORE_EDGE_VARPI2={}'.format('ON' if '+coupling_core_edge_varpi2' in spec else 'OFF')]
         return args
 
