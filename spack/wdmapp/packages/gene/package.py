@@ -20,9 +20,6 @@ class Gene(CMakePackage, CudaPackage):
     version('cuda_under_the_hood',
             branch='cuda_under_the_hood',
             submodules=True, submodules_delete=['python-diag'])
-    version('cuth-wip', git='git@github.com:wdmapp/gene-wip.git',
-            branch='cuth-wip',
-            submodules=True, submodules_delete=['python-diag'])
 
     variant('pfunit', default=True,
             description='Enable pfunit tests')
