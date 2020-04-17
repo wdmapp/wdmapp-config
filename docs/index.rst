@@ -60,6 +60,7 @@ Overall, the process works like this:
 
    machines/summit
    machines/longhorn 
+   machines/aimos
 
 .. toctree::
    :maxdepth: 2
