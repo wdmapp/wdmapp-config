@@ -19,6 +19,8 @@ class Xgc1(CMakePackage):
     version('master', branch='master')
     version('passThroughCpl', branch='cws/passThroughCpl')
 
+    variant('camtimers', default=True,
+            description='Enable camtimers')
     variant('coupling_core_edge', default=False,
             description='Enable XGC_COUPLING_CORE_EDGE')
     variant('coupling_core_edge_field', default=False,
@@ -30,19 +32,16 @@ class Xgc1(CMakePackage):
     depends_on('pkgconfig')
     #depends_on('parmetis')
     depends_on('pspline')
-    depends_on('camtimers')
+    depends_on('camtimers', when='+camtimers')
     depends_on('adios +fortran')
     depends_on('adios2 +fortran')
 
     def cmake_args(self):
         spec = self.spec
         args = []
-        if '+coupling_core_edge' in spec:
-            args.append('-DXGC_COUPLING_CORE_EDGE=ON')
-        if '+coupling_core_edge_field' in spec:
-            args.append('-DXGC_COUPLING_CORE_EDGE_FIELD=ON')
-        if '+coupling_core_edge_varpi2' in spec:
-            args.append('-DXGC_COUPLING_CORE_EDGE_VARPI2=ON')
-
+        args += ['-DXGC_CAMTIMERS={}'.format('ON' if '+camtimers' in spec else 'OFF')]
+        args += ['-DXGC_COUPLING_CORE_EDGE={}'.format('ON' if '+coupling_core_edge' in spec else 'OFF')]
+        args += ['-DXGC_COUPLING_CORE_EDGE_FIELD={}'.format('ON' if '+coupling_core_edge_field' in spec else 'OFF')]
+        args += ['-DXGC_COUPLING_CORE_EDGE_VARPI2={}'.format('ON' if '+coupling_core_edge_varpi2' in spec else 'OFF')]
         return args
 
