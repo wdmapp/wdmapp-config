@@ -20,6 +20,7 @@
 project = 'WDMapp'
 copyright = '2020, Kai Germaschewski, Bryce Allen'
 author = 'Kai Germaschewski, Bryce Allen'
+html_logo = '_static/wdmapp-logo2white.png'
 
 
 # -- General configuration ---------------------------------------------------
