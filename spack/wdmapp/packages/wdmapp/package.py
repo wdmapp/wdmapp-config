@@ -7,7 +7,11 @@ from spack import *
 
 
 class Wdmapp(BundlePackage):
-    """FIXME: Put a proper description of your package here."""
+    """The ECP WDMapp "Whole Device Model Application".
+
+    This bundle packages pulls in the proper versions/variants
+    of GENE and XGC to run a coupled simulation.
+    """
 
     homepage = "https://github.com/wdmapp"
     # There is no URL since there is no code to download.
@@ -18,6 +22,6 @@ class Wdmapp(BundlePackage):
 
     # FIXME this is a hack to avoid Spack not finding a feasible hdf5 on its own
     depends_on('hdf5 +hl')
-    depends_on('gene@coupling +adios2 +futils +read_xgc +diag_planes +couple_xgc')
+    depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes')
     depends_on('xgc1@master +coupling_core_edge +coupling_core_edge_field +coupling_core_edge_varpi2')
 
