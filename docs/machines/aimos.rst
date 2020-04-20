@@ -23,7 +23,7 @@ and you'll need to create an ssh key-pair for running MPI jobs
 
 
 Manual Install For Coupler Developers
-====================
+==========================================
 
 GENE
 -------------------------
