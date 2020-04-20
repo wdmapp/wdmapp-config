@@ -34,12 +34,10 @@ class Gene(CMakePackage, CudaPackage):
             description='Enable ADIOS2 I/O capabilities')
     variant('futils', default=False,
             description='Enable futils capabilities')
-    variant('read_xgc', default=False,
-            description='Enable reading of XGC files')
+    variant('wdmapp', default=False,
+            description='Enable WDMapp features')
     variant('diag_planes', default=False,
             description='Enable diag_planes')
-    variant('couple_xgc', default=False,
-            description='Enable coupling with XGC')
 
     depends_on('mpi')
     depends_on('fftw@3.3:')
@@ -55,9 +53,8 @@ class Gene(CMakePackage, CudaPackage):
         args = ['-DGENE_PERF={0}'.format(spec.variants['perf'].value)]
         args += ['-DGENE_USE_ADIOS2={}'.format('ON' if '+adios2' in spec else 'OFF')]
         args += ['-DGENE_USE_FUTILS={}'.format('ON' if '+futils' in spec else 'OFF')]
-        args += ['-DGENE_READ_XGC={}'.format('ON' if '+read_xgc' in spec else 'OFF')]
+        args += ['-DGENE_WDMAPP={}'.format('ON' if '+wdmapp' in spec else 'OFF')]
         args += ['-DGENE_DIAG_PLANES={}'.format('ON' if '+diag_planes' in spec else 'OFF')]
-        args += ['-DGENE_COUPLE_XGC={}'.format('ON' if '+couple_xgc' in spec else 'OFF')]
         if '+pfunit' in spec:
             args.append('-DPFUNIT={}'.format(spec['pfunit'].prefix))
         if '+cuda' in spec:
