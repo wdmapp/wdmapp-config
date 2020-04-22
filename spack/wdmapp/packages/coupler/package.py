@@ -16,7 +16,7 @@ class Coupler(CMakePackage):
 
     maintainers = ['cwsmith','Damilare06','phyboyzhang']
 
-    version('master', branch='master')
+    version('master', branch='master', preferred=True)
     version('develop', branch='develop')
 
     depends_on('pkgconfig', type='build')
