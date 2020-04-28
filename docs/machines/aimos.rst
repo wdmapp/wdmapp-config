@@ -25,6 +25,68 @@ and you'll need to create an ssh key-pair for running MPI jobs
 Manual Install For Coupler Developers
 ==========================================
 
+XGC-Devel
+-------------------------
+
+Clone the repo
+
+.. code-block:: sh
+
+  $ git clone https://github.com/wdmapp/XGC-Devel.git
+  $ cd XGC-Devel
+  $ git checkout rpi
+
+Create a environment file with the following contents named
+``envAimosGcc74OpenMPI.sh``.
+
+.. code-block:: sh
+
+  module use /gpfs/u/software/dcs-spack-install/v0133gcc/lmod/linux-rhel7-ppc64le/gcc/7.4.0-1/
+  module load gcc/7.4.0/1
+  module load openmpi/3.1.4-mm5hjuq
+  module load \
+    cmake/3.15.4-mnqjvz6 \
+    adios/1.13.1-ev2p4am \
+    adios2/2.5.0-mklg6ph \
+    petsc/3.7.7-int32-hdf5+ftn-real-c-7ewou4w \
+    fftw/3.3.8-b2oxdb5 \
+    pkg-config/system-cyeqmxc \
+    cabana/develop-pdrz6py
+
+``source`` the environment file
+
+.. code-block:: sh
+
+  $ source envAimosGcc74OpenMPI.sh
+
+Create a build directory ``build-xgcDevel-aimosGcc74OpenMPI``, ``cd`` into it,
+and run ``CMake``:
+
+.. code-block:: sh
+
+  $ mkdir build-xgcDevel-aimosGcc74OpenMPI
+  $ cd !$
+  $ # specify the path to the XGC-Devel repo
+  $ cmake /path/to/xgc-devel/repo \
+    -DCMAKE_CXX_COMPILER=g++ \
+    -DCMAKE_C_COMPILER=gcc \
+    -DCMAKE_Fortran_COMPILER=gfortran \
+    -DXGC_USE_ADIOS1=ON \
+    -DXGC_USE_ADIOS2=ON \
+    -DXGC_USE_CABANA=ON \
+    -DXGC_USE_FusionIO=OFF \
+    -DUSE_SYSTEM_PSPLINE=OFF \
+    -DBUILD_TESTING=OFF
+
+Run ``make`` to compile and link XGC:
+
+.. code-block:: sh
+
+  $ make -j8
+
+If all goes well the xgc binary will be created; ``bin/xgc-es-cpp``.
+
+
 GENE
 -------------------------
 
