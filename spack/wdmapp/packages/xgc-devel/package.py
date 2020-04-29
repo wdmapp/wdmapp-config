@@ -15,6 +15,7 @@ class XgcDevel(CMakePackage):
 
     maintainers = ['germasch', 'bd4', 'cwsmith', 'Damilare06']
 
+    version('wdmapp', branch='wdmapp', preferred=True)
     version('rpi', branch='rpi')
 
     variant('coupling_core_edge_gene', default=False,
@@ -25,11 +26,12 @@ class XgcDevel(CMakePackage):
     depends_on('adios +fortran')
     depends_on('adios2 +fortran')
     depends_on('fftw@3.3.8:')
-    depends_on('cabana@develop +openmp', when='@rpi')
+    depends_on('cabana@develop')
 
     def cmake_args(self):
         spec = self.spec
         args = []
+        args += ['-DCMAKE_CXX_COMPILER=%s' % spec['kokkos'].kokkos_cxx]
         args += ['-DBUILD_TESTING=OFF']
         args += ['-DXGC_USE_ADIOS1=ON']
         args += ['-DXGC_USE_ADIOS2=ON']
