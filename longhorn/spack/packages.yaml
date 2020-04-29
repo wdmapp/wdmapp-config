@@ -19,6 +19,10 @@ packages:
     compiler: []
     providers: {}
     paths: {}
+
+  kokkos:
+    variants: +cuda +openmp +volta70 +cuda_lambda +wrapper
+    compiler: [gcc@7.3.0]
   
   all:
     providers:
