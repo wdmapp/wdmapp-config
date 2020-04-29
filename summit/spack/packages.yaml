@@ -19,6 +19,15 @@ packages:
       cuda@10.1.243: /sw/summit/cuda/10.1.243
     buildable: False
 
+  kokkos:
+    variants: +cuda +openmp +volta70 +cuda_lambda +wrapper
+    compiler: [gcc@8.1.1]
+
+  # This variant hacks around broken nvcc on Summit
+  kokkos-nvcc-wrapper:
+    variants: +summit
+    compiler: [gcc@8.1.1]
+
   openssl:
     paths:
       openssl@1.0.2k: /usr

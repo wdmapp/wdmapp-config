@@ -25,3 +25,8 @@ class Coupler(CMakePackage):
     depends_on('adios2@2.5.0:')
     depends_on('kokkos@3.0.0:')
     depends_on('fftw@3.3.8:')
+
+    def cmake_args(self):
+        args = []
+        args += ['-DCMAKE_CXX_COMPILER=%s' % self.spec['kokkos'].kokkos_cxx]
+        return args
