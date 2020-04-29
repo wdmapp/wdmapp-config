@@ -1,0 +1,37 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b1fe276..e3a6215 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,9 +1,16 @@
+ CMAKE_MINIMUM_REQUIRED(VERSION 3.8 FATAL_ERROR)
+-PROJECT(KokkosNVCCWrapper CXX CUDA)
++PROJECT(KokkosNVCCWrapper CXX)
+ SET(KokkosNVCCWrapper_VERSION_MAJOR 2)
+ SET(KokkosNVCCWrapper_VERSION_MINOR 7)
+ SET(KokkosNVCCWrapper_VERSION_PATCH 4)
+ 
++# Work around Summit's buggy nvcc
++set(CMAKE_CUDA_FLAGS_OLD "${CMAKE_CUDA_FLAGS}")
++set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -std c++14")
++enable_language(CUDA)
++set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS_OLD}")
++
++
+ IF (CMAKE_CUDA_HOST_COMPILER)
+ SET(KOKKOS_CXX ${CMAKE_CUDA_HOST_COMPILER})
+ ELSE()
+diff --git a/nvcc_wrapper.in b/nvcc_wrapper.in
+index 275ffdc..d20da00 100755
+--- a/nvcc_wrapper.in
++++ b/nvcc_wrapper.in
+@@ -343,6 +343,10 @@ do
+   shift
+ done
+ 
++if [ -z "$std_flag" ]; then
++  shared_args="$shared_args -std c++14"
++fi
++
+ # Only print host compiler version
+ if [ $get_host_version -eq 1 ]; then
+   $host_compiler --version

@@ -21,6 +21,11 @@ class KokkosNvccWrapper(CMakePackage):
 
     variant("mpi", default=True,
             description="use with MPI as the underlying compiler")
+    variant("summit", default=False,
+            description="hack around broken nvcc on Summit")
+
+    patch('summit-broken-nvcc.patch', when="+summit")
+
     depends_on("cuda")
     depends_on("mpi", when="+mpi")
 
