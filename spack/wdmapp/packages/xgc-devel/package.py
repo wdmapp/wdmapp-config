@@ -27,6 +27,8 @@ class XgcDevel(CMakePackage):
     depends_on('adios2 +fortran')
     depends_on('fftw@3.3.8:')
     depends_on('cabana@develop')
+    depends_on('pspline')
+    depends_on('camtimers')
 
     def cmake_args(self):
         spec = self.spec
@@ -37,5 +39,7 @@ class XgcDevel(CMakePackage):
         args += ['-DXGC_USE_ADIOS2=ON']
         args += ['-DXGC_USE_CABANA=ON']
         args += ['-DXGC_USE_GENE_COUPLING={}'.format('ON' if '+coupling_core_edge_gene' in spec else 'OFF')]
+        args += ['-DUSE_SYSTEM_PSPLINE=ON']
+        args += ['-DUSE_SYSTEM_CAMTIMERS=ON']
         return args
 
