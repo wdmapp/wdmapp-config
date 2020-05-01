@@ -22,7 +22,7 @@ The following describes how to use the pre-installed openmpi 3.1.2 + gcc
 
 You can copy your choice of a basic or a more comprehensive setup for
 Spack on Longhorn from the
-`<https://github.com/wdmapp/wdmapp-config/longhorn/spack>`_ repository.
+`<https://github.com/wdmapp/wdmapp-config/tree/master/longhorn/spack>`_ repository.
  
 .. code-block:: sh
 
