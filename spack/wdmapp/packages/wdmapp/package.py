@@ -22,8 +22,8 @@ class Wdmapp(BundlePackage):
 
     # FIXME this is a hack to avoid Spack not finding a feasible hdf5 on its own
     depends_on('hdf5 +hl')
-    depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes')
+    depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes perf=perfstubs')
     depends_on('xgc1@master +coupling_core_edge +coupling_core_edge_field +coupling_core_edge_varpi2')
-    depends_on('xgc-devel@rpi +coupling_core_edge_gene')
+    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene')
     depends_on('coupler@master')
 

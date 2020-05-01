@@ -13,7 +13,7 @@ Summit-Specific Setup
 
 You can copy your choice of a basic or a more comprehensive setup for
 Spack on Summit from the
-`<https://github.com/wdmapp/wdmapp-config/summit/spack>`_ repository.
+`<https://github.com/wdmapp/wdmapp-config/tree/master/summit/spack>`_ repository.
 
 .. code-block:: sh
 
