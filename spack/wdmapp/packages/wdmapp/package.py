@@ -24,6 +24,6 @@ class Wdmapp(BundlePackage):
     depends_on('hdf5 +hl')
     depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes perf=perfstubs')
     depends_on('xgc1@master +coupling_core_edge +coupling_core_edge_field +coupling_core_edge_varpi2')
-    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene')
+    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene -cabana -adios2')
     depends_on('coupler@master')
 
