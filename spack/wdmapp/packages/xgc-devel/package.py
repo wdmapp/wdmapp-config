@@ -17,6 +17,8 @@ class XgcDevel(CMakePackage):
 
     version('wdmapp', branch='wdmapp', preferred=True)
     version('rpi', branch='rpi')
+    version('passthrough', branch='passThrough',
+        git="git@github.com:Damilare06/XGC-Devel.git")
 
     variant('adios2', default=True,
             description="use ADIOS2 for I/O")

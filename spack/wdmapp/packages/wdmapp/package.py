@@ -18,8 +18,10 @@ class Wdmapp(BundlePackage):
 
     maintainers = ['germasch', 'bd4']
 
-    version('0.0.1')
+    version('0.0.1',preferred=True)
 
+    variant('passthrough', default=False,
+            description='Enable pass-through coupler')
     variant('xgc1_legacy', default=False,
             description='Build legacy XGC1/coupling code')
     variant('tau', default=True,
@@ -27,9 +29,15 @@ class Wdmapp(BundlePackage):
 
     # FIXME this is a hack to avoid Spack not finding a feasible hdf5 on its own
     depends_on('hdf5 +hl')
-    depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes perf=perfstubs')
-    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene -cabana -adios2')
-    depends_on('coupler@master')
+    #normal
+    depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes perf=perfstubs', when='~passthrough')
+    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene -cabana -adios2', when='~passthrough')
+    depends_on('coupler@master', when='~passthrough')
+
+    # variant +passthrough
+    depends_on('gene@passthrough +adios2 +futils +wdmapp +diag_planes perf=perfstubs', when='+passthrough')
+    depends_on('xgc-devel@passthrough +coupling_core_edge_gene -cabana -adios2', when='+passthrough')
+    depends_on('coupler@develop', when='+passthrough')
 
     # variant +xgc1_legacy
     depends_on('xgc1@master +coupling_core_edge +coupling_core_edge_field +coupling_core_edge_varpi2',

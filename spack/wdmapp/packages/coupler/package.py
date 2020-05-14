@@ -29,4 +29,5 @@ class Coupler(CMakePackage):
     def cmake_args(self):
         args = []
         args += ['-DCMAKE_CXX_COMPILER=%s' % self.spec['kokkos'].kokkos_cxx]
+        args += ['-DBUILD_TESTING=OFF']
         return args
