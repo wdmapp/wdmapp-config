@@ -22,6 +22,8 @@ class Wdmapp(BundlePackage):
 
     variant('xgc1_legacy', default=False,
             description='Build legacy XGC1/coupling code')
+    variant('tau', default=True,
+            description='Build TAU version needed for performance analysis of the coupled codes')
 
     # FIXME this is a hack to avoid Spack not finding a feasible hdf5 on its own
     depends_on('hdf5 +hl')
@@ -32,4 +34,7 @@ class Wdmapp(BundlePackage):
     # variant +xgc1_legacy
     depends_on('xgc1@master +coupling_core_edge +coupling_core_edge_field +coupling_core_edge_varpi2',
                when='+xgc1_legacy')
+
+    # variant +tau
+    depends_on('tau@develop +adios2 ~libunwind ~pdt +mpi', when='+tau')
 
