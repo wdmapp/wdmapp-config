@@ -39,9 +39,9 @@ renamed to ``packages.yaml`` to use it), tells Spack comprehensively
 about pre-installed software on Summit, so installation of WDMapp will
 proceed more quickly and use system-provided libraries where possible.
 
-.. note::
+.. warning ::
 
-   Make sure that you don't have a ``spectrum-mpi`` loaded. By
+   Make sure that you don't have ``xl`` or ``spectrum-mpi`` loaded. By
    default, Summit will load the ``xl`` and ``spectrum-mpi`` modules
    for you, and those interfere when Spack tries to perform ``gcc``
    based builds.  You might want to consider adding this to your
@@ -88,21 +88,28 @@ Running a Sample Job
 
    Complete instructions on how to get the test case set up and run.
 
-You can get the setup for a coupled WDMapp run by cloning
-https://github.com/wdmapp/testcases.
+* You can get the setup for a coupled WDMapp run by cloning
+  https://github.com/wdmapp/testcases.
 
-The sample sample job from
-https://github.com/wdmapp/wdmapp-config/longhorn/submit_wdmapp.sh will
-run the `run_1` coupled case.
+• Call the script ``testcases/run_1/summit/setup_run.sh <run-dir>``,
+  which will set up job in the given directory.
+  
+• Edit the generated batch script in ``<run-dir>`` to use the paths to
+  the GENE and XGC executables that were built by spack in the
+  previous step. You should be able to get them from ``spack
+  find --paths --deps wdmapp``.
+
+  Here is the job script:
 
 .. literalinclude:: ../../summit/submit_wdmapp.sh
    :language: shell
    :linenos:
-
-Submit as usal:
-
+  
+• Submit the batch script and cross your fingers.
+      
 .. code-block:: sh
 
    $ bsub submit_wdmapp.sh
 
    
+

@@ -4,22 +4,50 @@
 Building WDMAPP
 ***********************
 
-.. todo:: This should focus on WDMapp, and the develop instructions
+.. todo:: The develop instructions
 	  should possibly move elsewhere.
 
 Standard Installation
 ===========================
 
-Building a package can be done following the standard Spack way:
+Building WDMapp can be done following the standard Spack way:
 
 .. code-block:: sh
 
-  $ spack install gene
+  $ spack install wdmapp
 
 Then, have a coffee and keep your fingers crossed.
 
+The `wdmapp` packages is a metapackage ("BundlePackage" in Spack
+parlance) that pulls in proper versions and variants of GENE, XGC, the
+Coupler and TAU and all their dependencies to have everything in place
+to run a coupled simulation:
+
+.. code-block:: sh
+
+  $ spack spec wdmapp
+  Input spec
+  --------------------------------
+  wdmapp
+
+  Concretized
+  --------------------------------
+  wdmapp@0.0.1%gcc@7.5.0+tau~xgc1_legacy arch=linux-ubuntu18.04-haswell
+      ^coupler@master%gcc@7.5.0 build_type=RelWithDebInfo arch=linux-ubuntu18.04-haswell
+      ^gene@coupling%gcc@7.5.0+adios2 build_type=RelWithDebInfo ~cuda cuda_arch=none +diag_planes+futils perf=perfstubs +pfunit+wdmapp arch=linux-ubuntu18.04-haswell
+      ^tau@develop%gcc@7.5.0+adios2~bgq+binutils~comm~craycnl~cuda+fortran~gasnet+io+libdwarf+libelf~libunwind~likwid+mpi~ompt~opari~openmp+otf2+papi~pdt~phase~ppc64le~profilepa
+      ^xgc-devel@wdmapp%gcc@7.5.0~adios2 build_type=RelWithDebInfo ~cabana+coupling_core_edge_gene arch=linux-ubuntu18.04-haswell
+
 Installing for development
 ===============================
+
+.. note ::
+
+   The following describes how to do development builds of gene (XGC
+   can be done correspondingly) using `spack setup`. This way appears
+   to be deprecated in favor of `spack dev-build`. It does work, but
+   requires some workarounds and can subtly vary from how things are
+   built using `spack install` or `spack dev-build`.
 
 Most of the time, one needs to be able to specify the exact version of the code, make changes, etc. Spack can still help with development.
 
