@@ -11,11 +11,11 @@ class Effis(CMakePackage):
     url = homepage
 
     version('effis',   git='https://github.com/wdmapp/effis.git', branch='effis',   preferred=True)
-    version('develop',   git='https://github.com/wdmapp/effis.git', branch='develop',   preferred=False)
-    version('login',   git='https://github.com/wdmapp/effis.git', branch='login',   preferred=False)
+    version('develop', git='https://github.com/wdmapp/effis.git', branch='develop', preferred=False)
     version('kittie',  git='https://github.com/wdmapp/effis.git', branch='kittie',  preferred=False)
 
     variant("mpi", default=True, description="Use MPI")
+    variant("python-type", default="minimal", description="Python support", values=["minimal", "full"])
     variant("shared", default=True, description="Build shared library")
 
     depends_on('mpi', when="+mpi")
@@ -23,15 +23,17 @@ class Effis(CMakePackage):
     depends_on('adios2')
     depends_on('yaml-cpp')
 
-    extends('python')
+    # Needed for the installation process
     depends_on('python@2.7:', type=('build', 'run'))
     depends_on('py-setuptools')
-    depends_on('py-pyyaml')
-    depends_on('py-numpy')
-    depends_on('py-mpi4py', when="+mpi")
 
-    depends_on('codar-cheetah', when="^python@3:")
-    depends_on('py-matplotlib', when="^python@3:")
+    # These are not needed for non-Python application use of EFFIS
+    conflicts("python@:2.7.99", when="python-type=full")
+    depends_on('py-pyyaml',     when="python-type=full")         # Needed with EFFIS that composes/submits job AND Python app EFFIS imports
+    depends_on('py-numpy',      when="python-type=full")         # Needed with EFFIS that composes/submits job AND Python app EFFIS imports
+    depends_on('py-mpi4py',     when="python-type=full +mpi")    # Needed with Python app EFFIS imports
+    depends_on('codar-cheetah', when="python-type=full")         # Needed with EFFIS that composes/submits job
+    depends_on('py-matplotlib', when="python-type=full")         # Needed with EFFIS that composes/submits job
 
 
     def cmake_args(self):
