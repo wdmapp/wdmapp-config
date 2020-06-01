@@ -42,16 +42,14 @@ Create a environment file with the following contents named
 .. code-block:: sh
 
   module use /gpfs/u/software/dcs-spack-install/v0133gcc/lmod/linux-rhel7-ppc64le/gcc/7.4.0-1/
-  module load gcc/7.4.0/1
-  module load openmpi/3.1.4-mm5hjuq
+  module load gcc/7.4.0/1 openmpi/3.1.4-mm5hjuq cmake/3.15.4-mnqjvz6
   module load \
-    cmake/3.15.4-mnqjvz6 \
     adios/1.13.1-ev2p4am \
     adios2/2.5.0-mklg6ph \
     petsc/3.7.7-int32-hdf5+ftn-real-c-7ewou4w \
     fftw/3.3.8-b2oxdb5 \
-    pkg-config/system-cyeqmxc \
-    cabana/develop-pdrz6py
+    pkg-config/system-cyeqmxc
+
 
 ``source`` the environment file
 
@@ -72,11 +70,13 @@ and run ``CMake``:
     -DCMAKE_C_COMPILER=gcc \
     -DCMAKE_Fortran_COMPILER=gfortran \
     -DXGC_USE_ADIOS1=ON \
-    -DXGC_USE_ADIOS2=ON \
-    -DXGC_USE_CABANA=ON \
-    -DXGC_USE_FusionIO=OFF \
+    -DXGC_USE_ADIOS2=OFF \
+    -DXGC_USE_CABANA=OFF \
     -DUSE_SYSTEM_PSPLINE=OFF \
-    -DBUILD_TESTING=OFF
+    -DXGC_GENE_COUPLING=ON \
+    -DBUILD_TESTING=OFF \
+    -DCMAKE_INSTALL_PREFIX=$PWD/install
+
 
 Run ``make`` to compile and link XGC:
 
