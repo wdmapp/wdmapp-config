@@ -137,12 +137,12 @@ and run ``CMake``:
     -DCMAKE_Fortran_COMPILER=gfortran \
     -DCMAKE_CXX_COMPILER=g++ \
     -DCMAKE_C_COMPILER=gcc \
-    -DCMAKE_BUILD_TYPE=Debug \
     -DGENE_USE_FUTILS=on \
     -DGENE_USE_ADIOS2=on \
     -DGENE_DIAG_PLANES=on \
-    -DGENE_READ_XGC=on \
-    -DGENE_COUPLE_XGC=on
+    -DGENE_PERF=none \
+    -DGENE_WDMAPP=on
+
 
 Run ``make`` to compile and link GENE:
 
