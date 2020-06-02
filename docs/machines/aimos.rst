@@ -151,3 +151,11 @@ Run ``make`` to compile and link GENE:
   $ make -j8
 
 If all goes well the gene binary will be created; ``src/gene``.
+
+Run
+-------------------------
+
+Clone the testcases repo (https://github.com/wdmapp/testcases) then follow the instructions in `run_1/README.md`:
+
+https://github.com/wdmapp/testcases/blob/master/run_1/README.md
+
