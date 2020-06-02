@@ -22,6 +22,8 @@ class Gene(CMakePackage, CudaPackage):
             submodules=True, submodules_delete=['python-diag'])
     version('coupling', branch='coupling',
             submodules=True, submodules_delete=['python-diag'])
+    version('passthrough', branch='rpi', git="git@github.com:Damilare06/gene.git",
+            submodules=True, submodules_delete=['python-diag'])
 
     variant('pfunit', default=True,
             description='Enable pfunit tests')
