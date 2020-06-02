@@ -44,7 +44,7 @@ class Wdmapp(BundlePackage):
     depends_on('hdf5 +hl', when='+passthrough')
     depends_on('gene@passthrough +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
         when='+passthrough')
-    depends_on('xgc-devel@passthrough +coupling_core_edge_gene -cabana -adios2',
+    depends_on('xgc-devel@rpi +coupling_core_edge_gene -cabana -adios2',
         when='+passthrough')
     depends_on('coupler@develop',
         when='+passthrough')
