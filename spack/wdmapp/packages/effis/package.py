@@ -24,7 +24,7 @@ class Effis(CMakePackage):
     depends_on('yaml-cpp')
 
     # Needed for the installation process
-    depends_on('python@2.7:', type=('build', 'run'))
+    depends_on('python@2.7.12:', type=('build', 'run'))
     depends_on('py-setuptools')
 
     # These are not needed for non-Python application use of EFFIS
