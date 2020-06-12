@@ -1,0 +1,23 @@
+packages:
+
+  all:
+    compiler: [gcc@8.4.0]
+    providers:
+      mpi: [openmpi]
+      blas: [netlib-lapack]
+      lapack: [netlib-lapack]
+      scalapack: [netlib-scalapack]
+
+  slurm:
+    buildable: false
+    version: [19-05-0-1]
+    paths:
+      slurm@19-05-0-1: /usr
+
+  hwloc:
+    version: [1.11.11]
+
+  openmpi:
+    version: [3.1.4]
+    variants: "+pmi +thread_multiple +legacylaunchers fabrics=ucx schedulers=slurm"
+
