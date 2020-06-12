@@ -19,6 +19,10 @@ packages:
       cuda@10.1.243: /sw/summit/cuda/10.1.243
     buildable: False
 
+  effis:
+    version: [develop]
+    variants: "python-type=full"
+
   # build a libfabric that actually supports RDMA
   libfabric:
     variants: fabrics=sockets,tcp,udp,verbs,rxm

@@ -28,11 +28,10 @@ class Wdmapp(BundlePackage):
             description='Build TAU version needed for performance analysis of the coupled codes')
 
     # FIXME this is a hack to avoid Spack not finding a feasible hdf5 on its own
-    # CWS - If the variant is not specified for hdf5 and effis then there are
-    # concretization errors associated with hdf5 and python. I think this is related 
+    # CWS - If the variant is not specified for hdf5 then there are
+    # concretization errors associated with hdf5. I think this is related 
     # to https://github.com/spack/spack/issues/15478 .
     depends_on('hdf5 +hl', when='~passthrough')
-    depends_on('effis', when='~passthrough')
     #normal
     depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
         when='~passthrough')
@@ -43,7 +42,6 @@ class Wdmapp(BundlePackage):
 
     # variant +passthrough
     depends_on('hdf5 +hl', when='+passthrough')
-    depends_on('effis', when='+passthrough')
     depends_on('gene@passthrough +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
         when='+passthrough')
     depends_on('xgc-devel@rpi +coupling_core_edge_gene -cabana -adios2',
