@@ -55,6 +55,10 @@ packages:
       cuda@10.1.243: /sw/summit/cuda/10.1.243
     buildable: false
 
+  effis:
+    version: [develop]
+    variants: "python-type=full"
+
 #  cmake:
 #    paths:
 #      cmake@3.15.2: /sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/cmake-3.15.2-xit2o3iepxvqbyku77lwcugufilztu7t
