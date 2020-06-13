@@ -55,6 +55,8 @@ class Gene(CMakePackage, CudaPackage):
 
     conflicts('+effis', when='~adios2',
               msg='+effis requires +adios2 to also be selected.')
+    conflicts('+wdmapp', when='~futils',
+              msg='+wdmapp requires +futils to also be selected.')
 
     def cmake_args(self):
         spec = self.spec
