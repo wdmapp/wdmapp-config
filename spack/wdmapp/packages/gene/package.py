@@ -40,6 +40,8 @@ class Gene(CMakePackage, CudaPackage):
             description='Enable WDMapp features')
     variant('diag_planes', default=False,
             description='Enable diag_planes')
+    variant('effis', default=False,
+            description='Enable EFFIS')
 
     depends_on('mpi')
     depends_on('fftw@3.3:')
@@ -49,6 +51,10 @@ class Gene(CMakePackage, CudaPackage):
     depends_on('pfunit@3.3.3:3.3.99+mpi max_array_rank=6', when='+pfunit')
     depends_on('adios2', when='+adios2')
     depends_on('hdf5+fortran', when='+futils')
+    depends_on('effis', when='+effis')
+
+    conflicts('+effis', when='~adios2',
+              msg='+effis requires +adios2 to also be selected.')
 
     def cmake_args(self):
         spec = self.spec
@@ -57,6 +63,7 @@ class Gene(CMakePackage, CudaPackage):
         args += ['-DGENE_USE_FUTILS={}'.format('ON' if '+futils' in spec else 'OFF')]
         args += ['-DGENE_WDMAPP={}'.format('ON' if '+wdmapp' in spec else 'OFF')]
         args += ['-DGENE_DIAG_PLANES={}'.format('ON' if '+diag_planes' in spec else 'OFF')]
+        args += ['-DGENE_USE_EFFIS={}'.format('ON' if '+effis' in spec else 'OFF')]
         if '+pfunit' in spec:
             args.append('-DPFUNIT={}'.format(spec['pfunit'].prefix))
         if '+cuda' in spec:
