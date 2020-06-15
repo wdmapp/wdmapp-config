@@ -73,7 +73,7 @@ On Rhea an ``olcf`` repo is also needed:
 
 .. code-block:: sh
 
-  $ spack repo add path/to/wdmapp-config/rhea/olcf
+  $ spack repo add path/to/wdmapp-config/rhea/spack/olcf
   ==> Added repo with namespace 'olcf'
 
 .. note::
