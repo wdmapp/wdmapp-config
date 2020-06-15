@@ -69,8 +69,6 @@ aren't found in its builtin package repository.
   $ spack repo add path/to/wdmapp-config/spack/wdmapp
   ==> Added repo with namespace 'wdmapp'.
 
-.. note::
-
 On Rhea an ``olcf`` repo is also needed:
 
 .. code-block:: sh
