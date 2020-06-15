@@ -24,4 +24,5 @@ packages:
   openmpi:
     version: [3.1.4]
     variants: "+pmi +thread_multiple +legacylaunchers fabrics=ucx schedulers=slurm"
-
+    paths:
+      'openmpi@3.1.4 +pmi +thread_multiple +legacylaunchers fabrics=ucx schedulers=slurm % gcc@8.4.0': /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/openmpi-3.1.4-bmn7or3eq2xi2sol4f7yvlpnwniut7yd
