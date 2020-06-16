@@ -59,6 +59,7 @@ Overall, the process works like this:
    :caption: Contents:
 
    machines/summit
+   machines/rhea
    machines/longhorn 
    machines/aimos
 

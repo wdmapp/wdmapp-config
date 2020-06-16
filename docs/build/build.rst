@@ -38,6 +38,12 @@ to run a coupled simulation:
       ^tau@develop%gcc@7.5.0+adios2~bgq+binutils~comm~craycnl~cuda+fortran~gasnet+io+libdwarf+libelf~libunwind~likwid+mpi~ompt~opari~openmp+otf2+papi~pdt~phase~ppc64le~profilepa
       ^xgc-devel@wdmapp%gcc@7.5.0~adios2 build_type=RelWithDebInfo ~cabana+coupling_core_edge_gene arch=linux-ubuntu18.04-haswell
 
+Then install effis:
+
+.. code-block:: sh
+
+  $ spack install effis
+
 Installing for development
 ===============================
 
