@@ -30,6 +30,3 @@ packages:
   libfabric:
     version: [1.6.1]
     variants: 'fabrics=verbs'
-
-  tau:
-    variants: "-papi"
