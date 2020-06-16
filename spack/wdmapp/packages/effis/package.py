@@ -12,7 +12,6 @@ class Effis(CMakePackage):
 
     version('effis',   git='https://github.com/wdmapp/effis.git', branch='effis',   preferred=True)
     version('develop', git='https://github.com/wdmapp/effis.git', branch='develop', preferred=False)
-    version('kittie',  git='https://github.com/wdmapp/effis.git', branch='kittie',  preferred=False)
 
     variant("mpi", default=True, description="Use MPI")
     variant("python-type", default="minimal", description="Python support", values=["minimal", "full"])
@@ -20,20 +19,21 @@ class Effis(CMakePackage):
 
     depends_on('mpi', when="+mpi")
     depends_on('cmake')
-    depends_on('adios2')
     depends_on('yaml-cpp')
+    depends_on('adios2', when="python-type=minimal")
 
     # Needed for the installation process
     depends_on('python@2.7.12:', type=('build', 'run'))
     depends_on('py-setuptools')
 
     # These are not needed for non-Python application use of EFFIS
-    conflicts("python@:2.7.99", when="python-type=full")
+    depends_on("python@3.7.0:", when="python-type=full")
     depends_on('py-pyyaml',     when="python-type=full")         # Needed with EFFIS that composes/submits job AND Python app EFFIS imports
     depends_on('py-numpy',      when="python-type=full")         # Needed with EFFIS that composes/submits job AND Python app EFFIS imports
     depends_on('py-mpi4py',     when="python-type=full +mpi")    # Needed with Python app EFFIS imports
     depends_on('codar-cheetah', when="python-type=full")         # Needed with EFFIS that composes/submits job
     depends_on('py-matplotlib', when="python-type=full")         # Needed with EFFIS that composes/submits job
+    depends_on('adios2+python', when="python-type=full")
 
 
     def cmake_args(self):
