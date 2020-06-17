@@ -1,5 +1,6 @@
 packages:
 
+  # concretization preferences
   all:
     compiler: [gcc@8.4.0]
     providers:
@@ -30,3 +31,100 @@ packages:
   libfabric:
     version: [1.6.1]
     variants: 'fabrics=verbs'
+
+  cmake:
+    version: [3.14.2]
+    variants: "~doc +ncurses +openssl +ownlibs ~qt"
+    paths:
+      'cmake@3.14.2 ~doc +ncurses +openssl +ownlibs ~qt %gcc@8.4.0': /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/intel-19.0.0/cmake-3.14.2-dhkvdeslvm5qhki4hms3t5oiljls465q
+    buildable: false
+
+  netlib-lapack:
+    paths:
+      netlib-lapack@3.8.0%gcc@8.4.0: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/netlib-lapack-3.8.0-dawhaqkqdpvifacm6ljq7mgzxlab2rdj/
+    buildable: False
+
+  numactl:
+    paths:
+      numactl@2.0.12: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/numactl-2.0.12-duw2psubk7lkjxmw4rsbju77gtfyhabr/
+    buildable: False
+
+  python:
+    paths:
+      python@3.7.0anaconda: /sw/rhea/python/3.7/anaconda3/2018.12/
+      python@2.7.15-anaconda2-2018.12: /sw/rhea/python/2.7/anaconda2/2018.12/
+    buildable: False
+
+  py-setuptools:
+    paths:
+      py-setuptools@40.4.3: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-4.8.5/py-setuptools-40.4.3-g4iigzvhspwyaylfrqadn6gc7j3hcwu3/
+    buildable: False
+
+  kokkos:
+    variants: +openmp
+    compiler: [gcc@8.4.0]
+
+  # use olcf-provided rdma-core
+  rdma-core:
+    paths:
+      rdma-core: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/rdma-core-20-nlzz7p64eig7bhswl6wq7qhnbbhgomgv/
+    buildable: False
+
+  autoconf:
+    paths:
+      autoconf@2.69: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/autoconf-2.69-wja2krdjqxrmulm3leeaxnixhiwa2hxv/
+    buildable: False
+
+  automake:
+    paths:
+      automake@1.16.1: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/automake-1.16.1-bka6jucnq3xufnpqriypsxlixaxi3vzk/y
+    buildable: False
+
+  m4:
+    paths:
+      m4@1.4.18: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/m4-1.4.18-4l7ikmcqttphnh67b5reiyzfrqx5mpib/
+    buildable: False
+
+  help2man:
+    paths:  
+      help2man@1.47.4: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/help2man-1.47.4-emjt4evude7egl4vg2ah7wvfosyggii5/
+    buildable: False
+
+  pkg-config:
+    paths:
+      pkg-config@0.27.1: /usr
+
+  binutils:
+    variants: +libiberty +headers
+    paths:
+      binutils@2.27: /usr
+
+  diffutils:
+    paths:
+      diffutils@3.7: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/diffutils-3.7-5apqzge7tmosseamj6kv5ukzluia3rzf/
+    buildable: False
+
+  zlib:
+    paths:
+      zlib@1.2.11: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/zlib-1.2.11-zmpo4zsxvsl4bpahtcf5oebupj4cigml/
+    buildable: False
+
+  lz4:
+    paths:
+      lz4@1.8.1.2: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/lz4-1.8.1.2-n7be3tg3omya3siqcmuxa3j4gz73jssg
+    buildable: False
+
+  snappy:
+    paths:
+      snappy@1.1.7: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/snappy-1.1.7-53musxyxicq4tld2hxtzoxjth7qjavkx/
+    buildable: False
+
+  libpng:
+    paths:
+      libpng@1.6.34: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-4.8.5/libpng-1.6.34-4kfv2v35phzldswsqw4wtculghkswqhz/
+    buildable: False
+
+  libffi:
+    paths:
+      libffi@3.2.1: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-8.4.0/libffi-3.2.1-rkpffaxspuikbfa2mve3jgvvlrqgnlyh/
+    buildable: False

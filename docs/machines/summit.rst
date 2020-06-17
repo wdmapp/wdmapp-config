@@ -17,8 +17,9 @@ Spack on Summit from the
 
 .. code-block:: sh
 
-  $ mkdir -p ~/.spack/linux		
-  $ cp path/to/wdmapp-config/summit/spack/*.yaml ~/.spack/linux/
+  $ mkdir -p ~/.spack/linux-summit
+  $ cp path/to/wdmapp-config/summit/spack/*.yaml ~/.spack/linux-summit
+  $ ln -snf ~/.spack/linux-summit linux
 
 .. warning::
 
