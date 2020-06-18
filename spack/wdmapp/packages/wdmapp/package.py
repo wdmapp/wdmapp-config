@@ -26,7 +26,7 @@ class Wdmapp(BundlePackage):
             description='Build legacy XGC1/coupling code')
     variant('tau', default=True,
             description='Build TAU version needed for performance analysis of the coupled codes')
-    variant('effis', default=False,
+    variant('effis', default=True,
             description='Enable EFFIS')
 
     # normal
