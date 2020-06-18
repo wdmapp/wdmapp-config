@@ -5,13 +5,14 @@
 
 from spack import *
 
+
 class XgcDevel(CMakePackage):
     """XGC-Devel used for coupling with GENE-CUTH via the coupler"""
 
     homepage = "https://hbps.pppl.gov/computing/xgc-1"
     # FIXME, there is no tarball, but it still needs a URL, so it's fake
-    url      = "https://github.com/wdmapp/xgc1.tar.gz"
-    git      = "git@github.com:wdmapp/XGC-Devel.git"
+    url = "https://github.com/wdmapp/xgc1.tar.gz"
+    git = "git@github.com:wdmapp/XGC-Devel.git"
 
     maintainers = ['germasch', 'bd4', 'cwsmith', 'Damilare06']
 
@@ -21,11 +22,25 @@ class XgcDevel(CMakePackage):
     variant('adios2', default=True,
             description="use ADIOS2 for I/O")
     variant('coupling_core_edge_gene', default=False,
-            description='Enable XGC_GENE_COUPLING')
+            description='Enable XGC/GENE coupling')
     variant('cabana', default=True,
             description='Enable Kokkos/Cabana kernels')
     variant('effis', default=False,
             description='Enable EFFIS')
+
+    _xgc_options = {'coupling_core_edge': False,
+                    'init_gene_pert': False,
+                    'use_old_read_input': False,
+                    'convert_grid2': False,
+                    'new_flx_aif': False,
+                    'deltaf_mode2': False,
+                    'pure_rk4': False,
+                    'v_perp': True,
+                    'use_bicub_mod': True,
+                    'use_one_d_i_cub_mod': True}
+
+    for opt, default in _xgc_options.items():
+        variant(opt, default=default, description="Enable " + opt.upper())
 
     depends_on('petsc@3.7.0:3.7.999 ~complex +double')
     depends_on('pkgconfig')
@@ -43,13 +58,19 @@ class XgcDevel(CMakePackage):
         args = []
         args += ['-DBUILD_TESTING=OFF']
         args += ['-DXGC_USE_ADIOS1=ON']
-        args += ['-DXGC_USE_ADIOS2={}'.format('ON' if '+adios2' in spec else 'OFF')]
-        args += ['-DXGC_USE_CABANA={}'.format('ON' if '+cabana' in spec else 'OFF')]
+        args += ['-DXGC_USE_ADIOS2={}'.format(
+            'ON' if '+adios2' in spec else 'OFF')]
+        args += ['-DXGC_USE_CABANA={}'.format(
+            'ON' if '+cabana' in spec else 'OFF')]
         if '+cabana' in spec:
             args += ['-DCMAKE_CXX_COMPILER=%s' % spec['kokkos'].kokkos_cxx]
-        args += ['-DXGC_GENE_COUPLING={}'.format('ON' if '+coupling_core_edge_gene' in spec else 'OFF')]
+        args += ['-DXGC_GENE_COUPLING={}'.format(
+            'ON' if '+coupling_core_edge_gene' in spec else 'OFF')]
         args += ['-DUSE_SYSTEM_PSPLINE=ON']
         args += ['-DUSE_SYSTEM_CAMTIMERS=ON']
         args += ['-DEFFIS={}'.format('ON' if '+effis' in spec else 'OFF')]
-        return args
 
+        for opt in self._xgc_options:
+            args += ['-DXGC_{}={}'.format(opt.upper(),
+                                          'ON' if '+'+opt in spec else 'OFF')]
+        return args
