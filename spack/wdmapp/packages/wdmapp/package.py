@@ -26,25 +26,21 @@ class Wdmapp(BundlePackage):
             description='Build legacy XGC1/coupling code')
     variant('tau', default=True,
             description='Build TAU version needed for performance analysis of the coupled codes')
+    variant('effis', default=True,
+            description='Enable EFFIS')
 
-    # FIXME this is a hack to avoid Spack not finding a feasible hdf5 on its own
-    # CWS - If the variant is not specified for hdf5 then there are
-    # concretization errors associated with hdf5. I think this is related 
-    # to https://github.com/spack/spack/issues/15478 .
-    depends_on('hdf5 +hl', when='~passthrough')
-    #normal
+    # normal
     depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
         when='~passthrough')
-    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene -cabana -adios2',
+    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene -cabana +adios2',
         when='~passthrough')
     depends_on('coupler@master',
         when='~passthrough')
 
     # variant +passthrough
-    depends_on('hdf5 +hl', when='+passthrough')
     depends_on('gene@passthrough +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
         when='+passthrough')
-    depends_on('xgc-devel@rpi +coupling_core_edge_gene -cabana -adios2',
+    depends_on('xgc-devel@rpi +coupling_core_edge_gene -cabana +adios2',
         when='+passthrough')
     depends_on('coupler@develop',
         when='+passthrough')
@@ -55,4 +51,22 @@ class Wdmapp(BundlePackage):
 
     # variant +tau
     depends_on('tau@develop +adios2 ~libunwind ~pdt +mpi', when='+tau')
+
+    # variant +effis
+    depends_on('effis python-type=minimal', when='+effis')
+    depends_on('gene@coupling +effis', when='~passthrough +effis')
+    depends_on('xgc-devel@wdmapp +effis', when='~passthrough +effis')
+
+
+    # FIXME these are hacks to avoid Spack not finding a feasible packages on its own
+    # CWS - If the variant is not specified for hdf5 then there are
+    # concretization errors associated with hdf5. I think this is related 
+    # to https://github.com/spack/spack/issues/15478 .
+
+    # Contretization fixes
+    depends_on('adios  +fortran +sz')
+    depends_on('adios2 +fortran +sz')   # The ADIOS +sz (+fortran) is to be explicit, but it's the default
+    depends_on('sz@:1.4.12.99')         # ADIOS1 needs sz < 2.0.0, ADIOS2 defaults to sz > 2.0.0
+    depends_on('hdf5 +hl +fortran')     # PETSc needes +hl, Apps need +fortran
+    depends_on('python@:2.9.99')        # PETSc 3.7.7 needs Python 2.7, EFFIS defaults to Python 3
 

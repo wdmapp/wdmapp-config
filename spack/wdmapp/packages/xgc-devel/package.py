@@ -24,6 +24,8 @@ class XgcDevel(CMakePackage):
             description='Enable XGC_GENE_COUPLING')
     variant('cabana', default=True,
             description='Enable Kokkos/Cabana kernels')
+    variant('effis', default=False,
+            description='Enable EFFIS')
 
     depends_on('petsc@3.7.0:3.7.999 ~complex +double')
     depends_on('pkgconfig')
@@ -34,6 +36,7 @@ class XgcDevel(CMakePackage):
     depends_on('cabana@develop', when='+cabana')
     depends_on('pspline')
     depends_on('camtimers')
+    depends_on('effis', when='+effis')
 
     def cmake_args(self):
         spec = self.spec
@@ -47,5 +50,6 @@ class XgcDevel(CMakePackage):
         args += ['-DXGC_GENE_COUPLING={}'.format('ON' if '+coupling_core_edge_gene' in spec else 'OFF')]
         args += ['-DUSE_SYSTEM_PSPLINE=ON']
         args += ['-DUSE_SYSTEM_CAMTIMERS=ON']
+        args += ['-DEFFIS={}'.format('ON' if '+effis' in spec else 'OFF')]
         return args
 
