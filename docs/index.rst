@@ -43,6 +43,8 @@ machines as well, see also the generic instructions below.
 
 Overall, the process works like this:
 
+- Apply for access
+
 - Install Spack and customize for your machine.
 
 - Add the WDMapp Spack repo.
@@ -58,6 +60,7 @@ Overall, the process works like this:
    :maxdepth: 2
    :caption: Contents:
 
+   access
    machines/summit
    machines/rhea
    machines/longhorn 
