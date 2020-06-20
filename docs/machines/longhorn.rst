@@ -5,46 +5,31 @@ WDMapp on Longhorn at TACC
 Setting up Spack
 ====================
 
-Follow the generic instructions from  :ref:`setup-spack-label` to install Spack and add the
-WDMapp Spack package repository.
+.. include:: ../spack/setup-intro.rst
 
-.. todo:: adopt the following for longhorn
+.. include:: ../spack/installing-spack.rst
 
-Using Provided Basic Spack Setup for Longhorn
-----------------------------------------------
-	  
-Longhorn is currentlt pretty bare bones in terms of software
-installed, but with some patience, Spack will install most things for
-you.
+.. include:: ../spack/cloning-wdmapp-config.rst
+	     
+Longhorn-Specific Setup
+=========================
 
-The following describes how to use the pre-installed openmpi 3.1.2 + gcc
-7.3.0.
-
-You can copy your choice of a basic or a more comprehensive setup for
-Spack on Longhorn from the
-`<https://github.com/wdmapp/wdmapp-config/tree/master/longhorn/spack>`_ repository.
- 
-.. code-block:: sh
-
-  $ mkdir -p ~/.spack/linux		
-  $ cp path/to/wdmapp-config/longhorn/spack/*.yaml ~/.spack/linux/
+Employing our provided Spack configuration
+--------------------------------------------
 
 .. warning::
-   This will overwrite an existing Spack configuration, so be careful
-   if you've previously set Spack up. If you have existing config, consider
-   you might want to follow the instructions below for :ref:`longhorn-own-setup-label`.
 
-If you use the provided ``packages.yaml``, it only tells Spack about
-essential existing pre-installed packages on Summit, ie., CUDA, MPI
-and the corresponding compilers. Spack will therefore build and
-install all other dependencies from scratch, which takes time but has
-the advantage that it'll generate pretty much the same software stack
-on any machine you use.
+   The folllowing will overwrite an existing Spack configuration, so be careful
+   if you've previously set up Spack. If you have an existing config, consider
+   renaming ``~./spack`` to back it up.
 
-On the other hand, ``packages-extended.yaml`` (which needs to be
-renamed to ``packages.yaml`` to use it), tells Spack comprehensively
-about pre-installed software on Summit, so installation of WDMapp will
-proceed more quickly and use system-provided libraries where possible.
+Just copy the provided YAML configuration files to where Spack
+expects them:
+
+.. code-block:: sh
+
+   $ mkdir -p ~/.spack/linux
+   $ cp path/to/wdmapp-config/longhorn/spack/*.yaml ~/.spack/linux
 
 .. note::
 
@@ -58,13 +43,6 @@ proceed more quickly and use system-provided libraries where possible.
 
       module unload xl spectrum-mpi
    
-.. note::
-
-   On Longhorn, the cuda module sets environment variables that set a
-   path which ``nvcc`` does not otherwise add. Because of this, it is
-   requried to ``module load cuda/10.1.243`` before building GENE, and
-   probably other software that uses CUDA..
-
 .. _longhorn-own-setup-label:
 
 Creating your own setup for Longhorn
@@ -183,28 +161,3 @@ Building WDMapp
 You should be able to just follow the generic instructions from
 :ref:`build-wdmapp-label`.
 
-Running a Sample Job
-====================
-
-.. todo::
-
-   Complete instructions on how to get the test case set up and run.
-
-You can get the setup for a coupled WDMapp run by cloning
-https://github.com/wdmapp/testcases.
-
-The sample sample job from
-https://github.com/wdmapp/wdmapp-config/longhorn/submit_wdmapp.sh will
-run the `run_1` coupled case.
-
-.. literalinclude:: ../../summit/submit_wdmapp.sh
-   :language: shell
-   :linenos:
-
-Submit as usal:
-
-.. code-block:: sh
-
-   $ sbatch submit_wdmapp.sh
-
- 

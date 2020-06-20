@@ -15,10 +15,3 @@ aren't found in its builtin package repository.
   To update the wdmapp package repository to the latest, just run ``git
   pull`` in the directory where you cloned ``wdmapp-config/``.
 
-On Rhea an ``olcf`` repo is also needed:
-
-.. code-block:: sh
-
-  $ spack repo add path/to/wdmapp-config/rhea/spack/olcf
-  ==> Added repo with namespace 'olcf'
-
