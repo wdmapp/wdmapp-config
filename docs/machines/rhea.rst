@@ -44,6 +44,8 @@ Building WDMapp
 You should be able to just follow the generic instructions from
 :ref:`build-wdmapp-label`.
 
+.. _rhea-running-cyclone-label:
+
 Running the Cyclone Test Case
 =============================
 
@@ -62,6 +64,7 @@ Enable shell support for Spack:
 Load the wdmapp modules:
 
 .. code-block:: sh
+
   $ spack load effis arch=linux-rhel7-sandybridge
   $ spack load wdmapp arch=linux-rhel7-sandybridge
 
@@ -100,7 +103,7 @@ Running the Cyclone Test Case - External Coupler
 ================================================
 
 The cyclone test case can be executed with the external coupler
-(`wdmapp+passthrough` built in :ref:`build-wdmapp-label`) by
-following the instructions for :ref:`Running the Cyclone Test Case` using
+(``wdmapp+passthrough`` built in :ref:`build-wdmapp-label` by
+following the instructions for :ref:`rhea-running-cyclone-label` using
 ``run_externalCpl.yaml`` instead of ``run_1.yaml``.
 
