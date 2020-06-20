@@ -9,7 +9,7 @@
 
       $ mkdir -p /gpfs/alpine/scratch/$USER/spack-stage
 
-      and add the following to ``~/.spack/config.yaml``:
+   and add the following to ``~/.spack/config.yaml``:
 
    .. code-block:: yaml
 
