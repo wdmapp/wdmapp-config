@@ -1,32 +1,43 @@
 
-WDMApp on Summit
+WDMApp on Summit at OLCF
 *****************************
 
 Setting up Spack
 ====================
 
-Follow the generic instructions from  :ref:`setup-spack-label` to install Spack and add the
-WDMapp Spack package repository.
+.. include:: ../spack/setup-intro.rst
 
+.. include:: ../spack/installing-spack.rst
+
+.. include:: ../spack/cloning-wdmapp-config.rst
+	     
 Summit-Specific Setup
 -------------------------
 
-You can copy your choice of a basic or a more comprehensive setup for
-Spack on Summit from the
-`<https://github.com/wdmapp/wdmapp-config/tree/master/summit/spack>`_ repository.
+.. include:: note-olcf-shared-spack.rst
 
-.. code-block:: sh
-
-  $ mkdir -p ~/.spack/linux-summit
-  $ cp path/to/wdmapp-config/summit/spack/*.yaml ~/.spack/linux-summit
-  $ ln -snf ~/.spack/linux-summit linux
+Employing our provided Spack configuration
+--------------------------------------------
 
 .. warning::
 
-   This will overwrite an existing Spack configuration, so be careful
-   if you've previously set Spack up. If you have an existing config, consider
-   using ``path/to/spack/etc/spack/package.yaml`` for packages instead, and add
-   gcc 8.1.1 to your exising ``compilers.yaml`` if not already present.
+   The folllowing will overwrite an existing Spack configuration, so be careful
+   if you've previously set up Spack. If you have an existing config, consider
+   renaming ``~./spack`` to back it up.
+
+Just copy the provided YAML configuration files to where Spack
+expects them:
+
+.. code-block:: sh
+
+   $ mkdir -p ~/.spack/linux
+   $ cp path/to/wdmapp-config/summit/spack/*.yaml ~/.spack/linux
+
+      
+You can have a choice of a basic or a more comprehensive setup for
+Spack on Summit from the `wdmapp-config
+<https://github.com/wdmapp/wdmapp-config/tree/master/summit/spack>`_
+repository.
 
 If you use the provided ``packages.yaml``, it only tells Spack about
 essential existing pre-installed packages on Summit, ie., CUDA, MPI
@@ -36,7 +47,7 @@ the advantage that it'll generate pretty much the same software stack
 on any machine you use.
 
 On the other hand, ``packages-extended.yaml`` (which needs to be
-renamed to ``packages.yaml`` to use it), tells Spack comprehensively
+renamed to ``packages.yaml`` to be used), tells Spack comprehensively
 about pre-installed software on Summit, so installation of WDMapp will
 proceed more quickly and use system-provided libraries where possible.
 
@@ -59,22 +70,9 @@ proceed more quickly and use system-provided libraries where possible.
    requried to ``module load cuda/10.1.243`` before building GENE, and
    probably other software that uses CUDA..
 
-Consider also configuring spack to use gpfs scratch space (i.e. ``$MEMBERWORK``)
-when building packages, rather than the home filesystem which tends to have
-problems with high workload tasks:
+.. include:: note-olcf-spack-dir.rst
 
-.. code-block:: sh
-
-  $ mkdir -p /gpfs/alpine/scratch/$USER/spack-stage
-
-and add the following to ``~/.spack/config.yaml``:
-
-.. code-block:: yaml
-
-  config:
-    build_stage: /gpfs/alpine/scratch/$user/spack-stage
-   
-
+.. include:: ../spack/adding-wdmapp.rst
 
 Building WDMapp
 ================

@@ -1,48 +1,58 @@
 
-WDMApp on Rhea
+WDMApp on Rhea at OLCF
 *****************************
 
 Setting up Spack
 ====================
 
-Follow the generic instructions from  :ref:`setup-spack-label` to install Spack and add the
-WDMapp package repository.
+.. include:: ../spack/setup-intro.rst
 
+.. include:: ../spack/installing-spack.rst
+
+.. include:: ../spack/cloning-wdmapp-config.rst
+	     
 Rhea-Specific Setup
--------------------------
+======================
 
-.. code-block:: sh
+.. include:: note-olcf-shared-spack.rst
 
-  $ mkdir -p ~/.spack/linux-rhea
-  $ cp path/to/wdmapp-config/rhea/spack/*.yaml ~/.spack/linux-rhea
-  $ ln -snf ~/.spack/linux-rhea linux
+Employing our provided Spack configuration
+--------------------------------------------
 
 .. warning::
 
-   This will overwrite an existing Spack configuration, so be careful
-   if you've previously set Spack up. If you have an existing config, consider
-   moving ``~./spack`` to back it up.
+   The folllowing will overwrite an existing Spack configuration, so be careful
+   if you've previously set up Spack. If you have an existing config, consider
+   renaming ``~./spack`` to back it up.
 
-Consider also configuring spack to use gpfs scratch space (i.e. ``$MEMBERWORK``)
-when building packages, rather than the home filesystem which tends to have
-problems with high workload tasks:
+Just copy the provided YAML configuration files to where Spack
+expects them:
 
 .. code-block:: sh
 
-  $ mkdir -p /gpfs/alpine/scratch/$USER/spack-stage
+   $ mkdir -p ~/.spack/linux
+   $ cp path/to/wdmapp-config/rhea/spack/*.yaml ~/.spack/linux
 
-and add the following to ``~/.spack/config.yaml``:
+On Rhea an ``olcf`` repo is also needed to make it possible to use
+system-installed packages from our Spack. This repo is provided by the
+`wdmapp-config` you cloned earlier:
 
-.. code-block:: yaml
+.. code-block:: sh
 
-  config:
-    build_stage: /gpfs/alpine/scratch/$user/spack-stage
+  $ spack repo add path/to/wdmapp-config/rhea/spack/olcf
+  ==> Added repo with namespace 'olcf'
+
+.. include:: note-olcf-spack-dir.rst
+  
+.. include:: ../spack/adding-wdmapp.rst
 
 Building WDMapp
 ================
 
 You should be able to just follow the generic instructions from
 :ref:`build-wdmapp-label`.
+
+.. _rhea-running-cyclone-label:
 
 Running the Cyclone Test Case
 =============================
@@ -62,6 +72,7 @@ Enable shell support for Spack:
 Load the wdmapp modules:
 
 .. code-block:: sh
+
   $ spack load effis arch=linux-rhel7-sandybridge
   $ spack load wdmapp arch=linux-rhel7-sandybridge
 
@@ -100,7 +111,7 @@ Running the Cyclone Test Case - External Coupler
 ================================================
 
 The cyclone test case can be executed with the external coupler
-(`wdmapp+passthrough` built in :ref:`build-wdmapp-label`) by
-following the instructions for :ref:`Running the Cyclone Test Case` using
+(``wdmapp+passthrough`` built in :ref:`build-wdmapp-label` by
+following the instructions for :ref:`rhea-running-cyclone-label` using
 ``run_externalCpl.yaml`` instead of ``run_1.yaml``.
 
