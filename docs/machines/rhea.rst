@@ -1,5 +1,5 @@
 
-WDMApp on Rhea
+WDMApp on Rhea at OLCF
 *****************************
 
 Setting up Spack

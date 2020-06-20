@@ -1,5 +1,5 @@
 
-WDMapp on Longhorn
+WDMapp on Longhorn at TACC
 *************************************
 
 Setting up Spack

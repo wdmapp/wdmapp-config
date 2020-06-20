@@ -1,5 +1,5 @@
 
-WDMApp on AiMOS
+WDMApp on AiMOS at RPI
 *****************************
 
 AiMOS is a 268 node IBM AC922 system with 2x IBM P9 and 6x NVIDIA V100 GPUs with

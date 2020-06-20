@@ -1,5 +1,5 @@
 
-WDMApp on Summit
+WDMApp on Summit at OLCF
 *****************************
 
 Setting up Spack
