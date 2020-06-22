@@ -23,6 +23,7 @@ class Effis(CMakePackage):
     depends_on('adios2', when="python-type=minimal")
 
     # Needed for the installation process
+    extends('python')
     depends_on('python@2.7.12:', type=('build', 'run'))
     depends_on('py-setuptools')
 
