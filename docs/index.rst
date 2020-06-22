@@ -72,6 +72,7 @@ Overall, the process works like this:
 
    spack/setup
    build/build
+   effis/effis-main
    
 Indices and tables
 ==================
