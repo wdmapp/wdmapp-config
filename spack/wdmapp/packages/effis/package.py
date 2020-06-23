@@ -34,6 +34,7 @@ class Effis(CMakePackage):
     depends_on('py-mpi4py',      when="+python +mpi")
     depends_on('py-matplotlib',  when="+python")
 
+    conflicts("-python", when="+compose")
     depends_on('codar-cheetah', when="+compose")
 
 
