@@ -53,7 +53,7 @@ class Wdmapp(BundlePackage):
     depends_on('tau@develop +adios2 ~libunwind ~pdt +mpi', when='+tau')
 
     # variant +effis
-    depends_on('effis python-type=minimal', when='+effis')
+    depends_on('effis -python -compose', when='+effis')
     depends_on('gene@coupling +effis', when='~passthrough +effis')
     depends_on('xgc-devel@wdmapp +effis', when='~passthrough +effis')
 

@@ -20,7 +20,6 @@ packages:
 
   effis:
     version: [develop]
-    variants: "python-type=full"
 
   openmpi:
     version: [3.1.4]
