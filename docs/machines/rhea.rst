@@ -57,23 +57,13 @@ You should be able to just follow the generic instructions from
 Running the Cyclone Test Case
 =============================
 
-Enable shell support for Spack:
-
-.. code-block:: sh
-
-  # For bash/zsh users
-  $ export SPACK_ROOT=/path/to/spack
-  $ . $SPACK_ROOT/share/spack/setup-env.sh
-
-  # For tcsh or csh users (note you must set SPACK_ROOT)
-  $ setenv SPACK_ROOT /path/to/spack
-  $ source $SPACK_ROOT/share/spack/setup-env.csh
+.. include:: cyclone-env.rst
 
 Load the wdmapp modules:
 
 .. code-block:: sh
 
-  $ spack load effis arch=linux-rhel7-sandybridge
+  $ spack load effis +compose arch=linux-rhel7-sandybridge
   $ spack load wdmapp arch=linux-rhel7-sandybridge
 
 Clone the testcases repo:
@@ -83,29 +73,13 @@ Clone the testcases repo:
   $ git clone https://github.com/wdmapp/testcases.git
   $ cd testcases/run_1/rhea
 
-Edit the path to the run directory (reffered to as ``/path/to/testDir`` below),
-``rundir``, binaries, ``executable_path``, and the project, ``charge``,
-in ``run_1.yaml`` (and ``run_externalCpl.yaml`` if `wdmapp+passthrough` was
+See the :ref:`composition` page for help editing the workflow composition file. As quick pointers, 
+make sure to edit the path to the run directory (``/path/to/testDir`` below) called ``rundir``, 
+the binaries labeled ``executable_path``, and the project, ``charge``,
+in ``run_1.yaml`` (or ``run_externalCpl.yaml`` if `wdmapp+passthrough` was
 built in :ref:`build-wdmapp-label`).
 
-.. note::
-
-   Since we loaded the ``wdmapp`` module via Spack the binaries are in your ``PATH``
-   and their location can be retrieved with the ``which xgc-es gene cpl``
-   command.
-
-Run the effis pre-processor:
-
-.. code-block:: sh
-
-  $ effis-compose.py run_1.yaml
-
-Submit the job:
-
-.. code-block:: sh
-
-  $ effis-submit.py /path/to/testDir
-
+.. include:: cyclone-run.rst
 
 Running the Cyclone Test Case - External Coupler
 ================================================

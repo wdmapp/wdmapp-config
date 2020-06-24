@@ -21,7 +21,7 @@ you only want to use just one or the other machine, you can ignore the following
       $ ln -snf ~/.spack/linux-summit ~/.spack/linux # if on summit
 
    An alternative is to have two separate spack installs, and instead of keeping the config files
-   in ``~/.spack``, they can be put into ``$SPACK_ROOT/etc``, so with two different roots they
+   in ``~/.spack``, they can be put into ``$SPACK_ROOT/etc/spack``, so with two different roots they
    can be kept separate. You can then do this in your ``.bashrc``:
 
    .. code-block:: sh
@@ -32,4 +32,7 @@ you only want to use just one or the other machine, you can ignore the following
          export SPACK_ROOT=$HOME/spack-rhea
        fi
        source $SPACK_ROOT/share/spack/setup-env.sh		   
-
+    
+   Spack commands that edit configuration files such as 
+   ``spack compiler add`` can be called ``spack compiler add --scope site`` 
+   to update files living in ``$SPACK_ROOT/etc/spack``.
