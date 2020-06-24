@@ -80,35 +80,60 @@ Building WDMapp
 You should be able to just follow the generic instructions from
 :ref:`build-wdmapp-label`.
 
-Running a Sample Job
-====================
+Running the Cyclone Test Case
+=============================
 
-.. todo::
+.. include:: cyclone-env.rst
 
-   Complete instructions on how to get the test case set up and run.
+Load the wdmapp modules:
 
-* You can get the setup for a coupled WDMapp run by cloning
-  https://github.com/wdmapp/testcases.
-
-• Call the script ``testcases/run_1/summit/setup_run.sh <run-dir>``,
-  which will set up job in the given directory.
-  
-• Edit the generated batch script in ``<run-dir>`` to use the paths to
-  the GENE and XGC executables that were built by spack in the
-  previous step. You should be able to get them from ``spack
-  find --paths --deps wdmapp``.
-
-  Here is the job script:
-
-.. literalinclude:: ../../summit/submit_wdmapp.sh
-   :language: shell
-   :linenos:
-  
-• Submit the batch script and cross your fingers.
-      
 .. code-block:: sh
 
-   $ bsub submit_wdmapp.sh
+  $ spack load effis +compose arch=linux-rhel7-power9le
+  $ spack load wdmapp arch=linux-rhel7-power9le
 
-   
+Clone the testcases repo:
 
+.. code-block:: sh
+
+  $ git clone https://github.com/wdmapp/testcases.git
+  $ cd testcases/run_1/summit
+
+See the :ref:`composition` page for help editing the workflow composition file. As quick pointers, 
+make sure to edit the path to the run directory (``/path/to/testDir`` below) called ``rundir``, 
+the binaries labeled ``executable_path``, and the project, ``charge``,
+in ``run_1.yaml``.
+
+.. include:: cyclone-run.rst
+
+..
+    Running a Sample Job
+    ====================
+    
+    .. todo::
+    
+       Complete instructions on how to get the test case set up and run.
+    
+    * You can get the setup for a coupled WDMapp run by cloning
+      https://github.com/wdmapp/testcases.
+    
+    • Call the script ``testcases/run_1/summit/setup_run.sh <run-dir>``,
+      which will set up job in the given directory.
+      
+    • Edit the generated batch script in ``<run-dir>`` to use the paths to
+      the GENE and XGC executables that were built by spack in the
+      previous step. You should be able to get them from ``spack
+      find --paths --deps wdmapp``.
+    
+      Here is the job script:
+    
+    .. literalinclude:: ../../summit/submit_wdmapp.sh
+       :language: shell
+       :linenos:
+      
+    • Submit the batch script and cross your fingers.
+          
+    .. code-block:: sh
+    
+       $ bsub submit_wdmapp.sh
+..
