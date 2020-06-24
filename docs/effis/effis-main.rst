@@ -13,4 +13,5 @@ It is currently being developed within the ECP Whole Device Modeling project.
    Code Integration <https://github.com/wdmapp/effis/blob/master/doc/integration.md>
    Preprocessor <https://github.com/wdmapp/effis/blob/master/doc/preprocessor.md>
    effis-config
+   tau
    dashboard
