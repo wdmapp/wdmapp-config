@@ -46,6 +46,21 @@ system-installed packages from our Spack. This repo is provided by the
   
 .. include:: ../spack/adding-wdmapp.rst
 
+.. note::
+
+   The E4S prjoect has created a build cache for Rhea. This provides many
+   packages as precompiled binaries, so will reduce the installation
+   time. To use it:
+
+   .. code-block:: sh
+
+      $ wget https://oaciss.uoregon.edu/e4s/e4s.pub
+      $ spack gpg trust e4s.pub
+      $ spack mirror add E4S https://cache.e4s.io/e4s
+		  
+
+   
+
 Building WDMapp
 ================
 
