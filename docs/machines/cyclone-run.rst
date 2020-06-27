@@ -14,4 +14,4 @@ Submit the job:
 
 .. code-block:: sh
 
-  $ effis-submit.py /path/to/testDir
+  $ effis-submit /path/to/testDir
