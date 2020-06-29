@@ -21,7 +21,6 @@ packages:
 
   effis:
     version: [develop]
-    variants: "python-type=full"
 
   # build a libfabric that actually supports RDMA
   libfabric:
