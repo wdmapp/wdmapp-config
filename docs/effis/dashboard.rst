@@ -34,7 +34,7 @@ Deploying the Remote Dashboard
 -----------------------------------
 
 Instructions for how to deploy a run an instance of the dashboard that connects to this data can be found on
-in the `eSimMon documentation <https://github.com/wdmapp/effis>`_.
+in the `eSimMon documentation <https://github.com/Kitware/eSimMon>`_.
 In short, a monitoring service will given the web address for the ``http`` directory,
 pull new data when it becomes available, and then display the images
 thorugh a web server that multiple uers can connect to.
