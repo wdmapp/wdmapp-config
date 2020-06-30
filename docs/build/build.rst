@@ -7,6 +7,13 @@ Building WDMAPP
 .. todo:: The develop instructions
 	  should possibly move elsewhere.
 
+
+.. note ::
+
+   In order to install the non-public packages, one must 
+   `upload their SSH keys to GitHub <https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account>`_.
+
+
 Standard Installation
 ===========================
 
