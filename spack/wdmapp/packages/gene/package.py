@@ -16,9 +16,10 @@ class Gene(CMakePackage, CudaPackage):
 
     maintainers = ['germasch', 'bd4']
 
-    # FIXME: Add proper versions and checksums here.
+    version('wdmapp-0.1.0', tag='wdmapp-0.1.0', preferred=True,
+            submodules=True, submodules_delete=['python-diag'])
     version('cuda_under_the_hood', git="git@gitlab.mpcdf.mpg.de:GENE/gene-dev.git",
-            branch='cuda_under_the_hood', preferred=True,
+            branch='cuda_under_the_hood',
             submodules=True, submodules_delete=['python-diag'])
     version('coupling', branch='coupling',
             submodules=True, submodules_delete=['python-diag'])
@@ -51,7 +52,7 @@ class Gene(CMakePackage, CudaPackage):
     depends_on('pfunit@3.3.3:3.3.99+mpi max_array_rank=6', when='+pfunit')
     depends_on('adios2', when='+adios2')
     depends_on('hdf5+fortran', when='+futils')
-    depends_on('effis', when='+effis')
+    depends_on('effis@0.1.0', when='+effis')
 
     conflicts('+effis', when='~adios2',
               msg='+effis requires +adios2 to also be selected.')

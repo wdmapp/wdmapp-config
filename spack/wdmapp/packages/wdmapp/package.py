@@ -18,7 +18,7 @@ class Wdmapp(BundlePackage):
 
     maintainers = ['germasch', 'bd4']
 
-    version('0.0.1',preferred=True)
+    version('0.1.0',preferred=True)
 
     variant('passthrough', default=False,
             description='Enable pass-through coupler')
@@ -30,9 +30,9 @@ class Wdmapp(BundlePackage):
             description='Enable EFFIS')
 
     # normal
-    depends_on('gene@coupling +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
+    depends_on('gene@wdmapp-0.1.0 +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
         when='~passthrough')
-    depends_on('xgc-devel@wdmapp +coupling_core_edge_gene -cabana +adios2',
+    depends_on('xgc-devel@wdmapp-0.1.0 +coupling_core_edge_gene -cabana +adios2',
         when='~passthrough')
     depends_on('coupler@master',
         when='~passthrough')
@@ -53,9 +53,9 @@ class Wdmapp(BundlePackage):
     depends_on('tau@develop +adios2 ~libunwind ~pdt +mpi', when='+tau')
 
     # variant +effis
-    depends_on('effis -python -compose', when='+effis')
-    depends_on('gene@coupling +effis', when='~passthrough +effis')
-    depends_on('xgc-devel@wdmapp +effis', when='~passthrough +effis')
+    depends_on('effis@0.1.0 -python -compose', when='+effis')
+    depends_on('gene@wdmapp-0.1.0 +effis', when='~passthrough +effis')
+    depends_on('xgc-devel@wdmapp-0.1.0 +effis', when='~passthrough +effis')
 
 
     # FIXME these are hacks to avoid Spack not finding a feasible packages on its own
