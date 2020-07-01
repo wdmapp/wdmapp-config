@@ -89,8 +89,8 @@ Load the wdmapp modules:
 
 .. code-block:: sh
 
-  $ spack load effis +compose arch=linux-rhel7-power9le
   $ spack load wdmapp arch=linux-rhel7-power9le
+  $ spack load effis +compose arch=linux-rhel7-power9le
 
 Clone the testcases repo:
 
