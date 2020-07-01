@@ -27,7 +27,7 @@ class Effis(CMakePackage):
     depends_on('adios2 +python', when="+python")
 
     extends('python', when="+python")
-    depends_on('python@2.7.12:', when="+python")
+    depends_on('python@2.7.12:')
     depends_on('py-setuptools',  when="+python")
     depends_on('py-pyyaml',      when="+python")
     depends_on('py-numpy',       when="+python")
