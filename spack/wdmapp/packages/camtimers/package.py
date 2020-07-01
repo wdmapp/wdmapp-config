@@ -17,6 +17,7 @@ class Camtimers(CMakePackage):
 
     maintainers = ['germasch', 'bd4']
 
+    version('0.1.0', tag='v0.1.0', preferred=True)
     version('master', branch='master')
 
     depends_on('mpi')

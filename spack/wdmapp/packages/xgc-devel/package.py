@@ -16,7 +16,8 @@ class XgcDevel(CMakePackage):
 
     maintainers = ['germasch', 'bd4', 'cwsmith', 'Damilare06']
 
-    version('wdmapp', branch='wdmapp', preferred=True)
+    version('wdmapp-0.1.0', tag='wdmapp-0.1.0', preferred=True)
+    version('wdmapp', branch='wdmapp')
     version('rpi', branch='rpi')
 
     variant('adios2', default=True,
@@ -49,9 +50,9 @@ class XgcDevel(CMakePackage):
     depends_on('adios2 +fortran', when='+coupling_core_edge_gene')
     depends_on('fftw@3.3.8:')
     depends_on('cabana@develop', when='+cabana')
-    depends_on('pspline')
-    depends_on('camtimers')
-    depends_on('effis', when='+effis')
+    depends_on('pspline@0.1.0')
+    depends_on('camtimers@0.1.0')
+    depends_on('effis@0.1.0', when='+effis')
 
     def cmake_args(self):
         spec = self.spec
