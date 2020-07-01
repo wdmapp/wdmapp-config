@@ -20,18 +20,21 @@ the main driver and coupling framework for a WDM. The main driver is
 based on the coupling of two advanced and highly scalable gyrokinetic
 codes, XGC and GENE, where the former is a particle-in-cell code
 optimized for the treating the edge plasma while the other is a
-continuum code optimized for the core. WDMApp aims to take advantage
-of the complementary nature of these two applications to build the
-most advanced and efficient whole device kinetic transport kernel for
-the WDM. A major part of the technical development work is targeting
-the coupling framework, which will be further developed for exascale
-and optimized for coupling most of the physics modules that will
-operate at various space and time scales. The current MPI +X is to be
-enhanced with communication-avoiding methods, task-based parallelism,
-in situ analysis with resources for load optimization workflows, and
-deep memory hierarchy-aware algorithms.
+continuum code optimized for the core. As an alternative, the GEM
+gyrokinetic code can be used instead of GENE to simulate the core
+region. WDMApp aims to take advantage of the complementary nature of
+the simulation codes to build the most advanced and efficient whole
+device kinetic transport kernel for the WDM. A major part of the
+technical development work is targeting the coupling framework, which
+will be further developed for exascale and optimized for coupling most
+of the physics modules that will operate at various space and time
+scales. The current MPI +X is to be enhanced with
+communication-avoiding methods, task-based parallelism, in situ
+analysis with resources for load optimization workflows, and deep
+memory hierarchy-aware algorithms.
 
-.. todo:: Do we want to keep all of the above? Add GEM?
+Sample simulation results from the WDMApp codes are available at
+http://wdmapp.pppl.gov/.
 
 Building and Running WDMapp
 ===========================
