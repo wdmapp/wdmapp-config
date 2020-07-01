@@ -7,7 +7,7 @@
 
    .. code-block:: sh
 
-      $ mkdir -p /gpfs/alpine/scratch/<project-id>/$USER/spack-stage
+      $ mkdir -p /gpfs/alpine/scratch/$USER/<project-id>/spack-stage
 
    and add the following to ``~/.spack/config.yaml`` (``$SPACK_ROOT/etc/spack/config.yaml``).
    Spack tries each entry in order for precedence:
@@ -17,5 +17,5 @@
       config:
         build_stage:
           - $tempdir/$user/spack-stage
-          - /gpfs/alpine/scratch/<project-id>/$user/spack-stage
+          - /gpfs/alpine/scratch/$USER/<project-id>/spack-stage
           - ~/.spack/stage
