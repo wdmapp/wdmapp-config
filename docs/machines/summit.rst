@@ -96,7 +96,7 @@ Clone the testcases repo:
 
 .. code-block:: sh
 
-  $ git clone https://github.com/wdmapp/testcases.git
+  $ git clone git@github.com:wdmapp/testcases.git
   $ cd testcases/run_1/summit
 
 See the :ref:`composition` page for help editing the workflow composition file. As quick pointers, 

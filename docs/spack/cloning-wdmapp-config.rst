@@ -8,6 +8,6 @@ you just set up Spack on.
 
 .. code-block:: sh
 
-   $ git clone https://github.com/wdmapp/wdmapp-config
+   $ git clone git@github.com:wdmapp/wdmapp-config.git
 
 
