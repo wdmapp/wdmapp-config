@@ -47,8 +47,8 @@ packages:
 
   python:
     paths:
-      python@3.7.0anaconda: /sw/summit/python/3.7/anaconda3/5.3.0
-      python@2.7.15anaconda: /sw/summit/python/2.7/anaconda2/5.3.0
+      python@3.7.0: /autofs/nccs-svm1_sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/python-3.7.0-ei3mpdncii74xsn55t5kxpuc46i3oezn/
+      python@2.7.15: /autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/python-2.7.15-rzeo24etdlaremohlyeb55b37gttl2iy
 
   cuda:
     paths:
@@ -67,14 +67,6 @@ packages:
   rdma-core:
     paths:
       rdma-core@20: /usr
-
-  py-numpy:
-    paths:
-      py-numpy@1.14.3: /sw/summit/python/3.7/anaconda3/5.3.0
-
-  py-mpi4py:
-    paths:
-      py-mpi4py@3.0.1: /sw/summit/python/3.7/anaconda3/5.3.0
 
   # Auto generated with bin/spack-gen-external-packages.py
   autoconf:

@@ -51,7 +51,7 @@ packages:
   python:
     paths:
       python@3.7.0anaconda: /sw/rhea/python/3.7/anaconda3/2018.12/
-      python@2.7.15-anaconda2-2018.12: /sw/rhea/python/2.7/anaconda2/2018.12/
+      python@2.7.15: /autofs/nccs-svm1_sw/rhea/.swci/0-core/opt/spack/20191017/linux-rhel7-x86_64/gcc-4.8.5/python-2.7.15-5tkgtna3egmcqn7lefg2xzeycoewy27o
     buildable: False
 
   py-setuptools:
