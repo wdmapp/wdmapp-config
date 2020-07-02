@@ -9,15 +9,16 @@ from spack import *
 class Coupler(CMakePackage):
     """XGC-GENE coupler."""
 
-    homepage = "https://github.com/SCOREC/wdmapp_coupling"
+    homepage = "https://github.com/wdmapp/wdmapp_coupling"
     # FIXME, there is no tarball, but it still needs a URL, so it's fake
-    url      = "git@github.com:SCOREC/wdmapp_coupling.tar.gz"
-    git      = "git@github.com:SCOREC/wdmapp_coupling.git"
+    url      = "git@github.com:wdmapp/wdmapp_coupling.tar.gz"
+    git      = "git@github.com:wdmapp/wdmapp_coupling.git"
 
     maintainers = ['cwsmith','Damilare06','phyboyzhang']
 
-    version('master', branch='master', preferred=True)
-    version('develop', branch='develop')
+    version('0.1.0', tag='v0.1.0', preferred=True)
+    version('develop', branch='develop',
+      git="git@github.com:SCOREC/wdmapp_coupling.git")
 
     depends_on('pkgconfig', type='build')
     depends_on('cmake@3.13:', type='build')
