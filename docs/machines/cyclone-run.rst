@@ -1,8 +1,6 @@
-.. note::
-
-   Since we loaded the ``wdmapp`` module via Spack the binaries are in your ``PATH``
-   and their location can be retrieved with the ``which xgc-es gene cpl``
-   command.
+Since we loaded the ``wdmapp`` module via Spack the binaries are in your
+``PATH`` and their location can be retrieved with the ``which xgc-es gene cpl``
+command.
 
 Run the effis pre-processor:
 

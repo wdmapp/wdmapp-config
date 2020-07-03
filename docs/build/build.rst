@@ -10,8 +10,17 @@ Building WDMAPP
 
 .. note ::
 
-   In order to install the non-public packages, one must 
-   `upload their SSH keys to GitHub <https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account>`_.
+   In order to install the non-public packages that are part of the wdmapp
+   metapackage, you will need SSH keys set up correctly with GitHub. This
+   requires creating an ssh key on the machine you will be installing wdmapp
+   (or use existing key if you have one) and adding the key to your GitHub
+   account. If your SSH key has a passphrase (highly recommended), you will
+   also need to run ssh-agent and add the key to ssh-agent with ssh-add.  SSH
+   Agent forwarding may also be an option, but be aware of the security trade
+   offs and make sure it is supported on the target machine (in particular
+   Summit and other OLCF machines do not allow agent forwarding). For details,
+   see the GitHub documentation `Connecting to GitHub with SSH
+   <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>`_.
 
 
 Standard Installation
