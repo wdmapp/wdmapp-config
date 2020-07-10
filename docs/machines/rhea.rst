@@ -48,7 +48,7 @@ system-installed packages from our Spack. This repo is provided by the
 
 .. note::
 
-   The E4S prjoect has created a build cache for Rhea. This provides many
+   The `E4S project <https://e4s.io/>`_ has created a build cache for Rhea. This provides many
    packages as precompiled binaries, so will reduce the installation
    time. To use it:
 
@@ -66,6 +66,38 @@ Building WDMapp
 
 You should be able to just follow the generic instructions from
 :ref:`build-wdmapp-label`.
+
+Using E4S WDMapp docker container
+-------------------------------------
+
+Alternatively, the `E4S project <https://e4s.io/>`_ has created a
+docker image that mirrors the Rhea environment, which can be used for
+local development and debugging. To run this image, you need to have
+docker installed and then do the following:
+
+... code-block:: sh
+
+    $ docker pull ecpe4s/ubi7.7_x86_64_base_wdm:1.0
+    $ docker run —rm -it ecpe4s/ubi7.7_x86_64_base_wdm:1.0
+
+In order for the image to get the access controlled components, you
+need to provide it with your private SSH key that provides access to
+the respective private github repos. In the image, do the following in
+the docker image:
+
+... code-block:: sh
+
+    # cat > .ssh/id_rsa # Then copy&paste your private key
+    # chmod 600 .ssh/id_rsa
+
+This provides an development environment with everything but the
+private codes preinstalled. All that's needed to complete building and
+installing them is:
+
+... code-block:: sh
+    
+    # spack install wdmapp target=x86_64
+    
 
 .. _rhea-running-cyclone-label:
 
