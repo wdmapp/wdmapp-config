@@ -75,7 +75,7 @@ docker image that mirrors the Rhea environment, which can be used for
 local development and debugging. To run this image, you need to have
 docker installed and then do the following:
 
-... code-block:: sh
+.. code-block:: sh
 
     $ docker pull ecpe4s/ubi7.7_x86_64_base_wdm:1.0
     $ docker run —rm -it ecpe4s/ubi7.7_x86_64_base_wdm:1.0
@@ -85,7 +85,7 @@ need to provide it with your private SSH key that provides access to
 the respective private github repos. In the image, do the following in
 the docker image:
 
-... code-block:: sh
+.. code-block:: sh
 
     # cat > .ssh/id_rsa # Then copy&paste your private key
     # chmod 600 .ssh/id_rsa
@@ -94,7 +94,7 @@ This provides an development environment with everything but the
 private codes preinstalled. All that's needed to complete building and
 installing them is:
 
-... code-block:: sh
+.. code-block:: sh
     
     # spack install wdmapp target=x86_64
     
