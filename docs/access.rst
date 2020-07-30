@@ -11,7 +11,7 @@ given below.
 
 XGC
 ===========================
-Visit https://xgc.pppl.gov/html/getting_xgc.html for instructions.  Be sure to
+Visit https://www.pppl.gov/organization/technology-transfer/software-access-request for instructions.  Be sure to
 reference the WDMApp ECP project and list `XGC-Develop` as the needed software.
 
 GENE
