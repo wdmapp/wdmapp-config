@@ -3,7 +3,7 @@ Installing Spack
 ======================
 
 Follow the instructions from the `Spack Documentation 
-<http://https://spack.readthedocs.io/en/latest/getting_started.html/>`_.
+<http://spack.readthedocs.io/en/latest/getting_started.html/>`_.
 
 .. code-block:: sh
 
