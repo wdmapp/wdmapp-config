@@ -3,7 +3,7 @@ Installing Spack
 ======================
 
 Follow the instructions from the `Spack Documentation 
-<http://https://spack.readthedocs.io/en/latest/getting_started.html/>`_.
+<https://spack.readthedocs.io/en/latest/getting_started.html>`_.
 
 .. code-block:: sh
 
@@ -27,4 +27,3 @@ Enable shell support for Spack.
   # For tcsh or csh users (note you must set SPACK_ROOT)
   $ setenv SPACK_ROOT /path/to/spack
   $ source $SPACK_ROOT/share/spack/setup-env.csh
-
