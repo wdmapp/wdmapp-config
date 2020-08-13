@@ -21,7 +21,7 @@ class XgcDevel(CMakePackage):
     version('rpi', branch='rpi')
 
     variant('adios2', default=True,
-            description="use ADIOS2 for I/O")
+            description="Enable ADIOS2 output")
     variant('coupling_core_edge_gene', default=False,
             description='Enable XGC/GENE coupling')
     variant('cabana', default=True,
@@ -73,6 +73,7 @@ class XgcDevel(CMakePackage):
         args += ['-DEFFIS={}'.format('ON' if '+effis' in spec else 'OFF')]
 
         for opt in self._xgc_options:
-            args += ['-DXGC_{}={}'.format(opt.upper(),
-                                          'ON' if '+'+opt in spec else 'OFF')]
+            pfx = 'XGC_' if opt in ("coupling_core_edge") else ''
+            args += ['-D{}{}={}'.format(pfx, opt.upper(),
+                                        'ON' if '+'+opt in spec else 'OFF')]
         return args
