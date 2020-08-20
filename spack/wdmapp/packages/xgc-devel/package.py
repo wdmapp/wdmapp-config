@@ -30,14 +30,19 @@ class XgcDevel(CMakePackage):
             description='Enable EFFIS')
 
     _xgc_options = {'coupling_core_edge': False,
+                    'cce_fcoupling': False,
+                    'cce_fcoupling_before': False,
                     'init_gene_pert': False,
+                    'iter_grid': False,
                     'use_old_read_input': False,
                     'convert_grid2': False,
                     'new_flx_aif': False,
                     'deltaf_mode2': False,
                     'pure_rk4': False,
+                    'solverlu': True,
                     'v_perp': True,
                     'use_bicub_mod': True,
+                    'use_inquire_directory': False,
                     'use_one_d_i_cub_mod': True}
 
     for opt, default in _xgc_options.items():
