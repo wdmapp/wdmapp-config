@@ -105,6 +105,8 @@ class Adios(AutotoolsPackage):
     #   https://github.com/ornladios/ADIOS/pull/204
     patch('zfp051.patch', when='@1.11.0:1.13.1')
 
+    patch('mpi_scatter-workaround.patch', when='@1.13.1')
+
     def validate(self, spec):
         """Checks if incompatible variants have been activated at the same time
 
