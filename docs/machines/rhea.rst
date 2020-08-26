@@ -56,7 +56,7 @@ system-installed packages from our Spack. This repo is provided by the
 
       $ wget https://oaciss.uoregon.edu/e4s/e4s.pub
       $ spack gpg trust e4s.pub
-      $ spack mirror add E4S https://cache.e4s.io/e4s
+      $ spack mirror add E4S https://cache.e4s.io
 		  
 
    
