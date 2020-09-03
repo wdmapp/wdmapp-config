@@ -5,7 +5,7 @@ Overview
 ============
 
 The Whole Device Model Application (WDMApp) uses access controlled versions of
-XGC, GENE, and supporting tools.  Before installing these packages users must
+XGC, GENE, GEM and supporting tools.  Before installing these packages users must
 first apply for access.  Specific instructions for each package, and WDMApp are
 given below.
 
@@ -18,6 +18,12 @@ GENE
 ==================
 Visit http://genecode.org/ then click the 'Get GENE' link at the top and fill
 out the form.
+
+GEM
+==================
+Visit http://www.gemgyrokinetic.org/, click the 'Download File' link at the bottom
+and follow the instructions within the form.
+
 
 WDMAPP
 ==================
