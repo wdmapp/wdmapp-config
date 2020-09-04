@@ -69,4 +69,5 @@ class Wdmapp(BundlePackage):
     depends_on('sz@:1.4.12.99')         # ADIOS1 needs sz < 2.0.0, ADIOS2 defaults to sz > 2.0.0
     depends_on('hdf5 +hl +fortran')     # PETSc needes +hl, Apps need +fortran
     depends_on('python@:2.9.99')        # PETSc 3.7.7 needs Python 2.7, EFFIS defaults to Python 3
+    depends_on('hwloc@:1.99.99')
 
