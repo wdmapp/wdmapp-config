@@ -53,6 +53,7 @@ packages:
   cuda:
     paths:
       cuda@10.1.243: /sw/summit/cuda/10.1.243
+      cuda@11.0.3: /sw/summit/cuda/11.0.3
     buildable: false
 
   effis:
