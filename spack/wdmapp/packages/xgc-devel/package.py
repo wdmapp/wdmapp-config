@@ -38,10 +38,12 @@ class XgcDevel(CMakePackage):
                     'convert_grid2': False,
                     'new_flx_aif': False,
                     'deltaf_mode2': False,
+                    'pure_rk2': False,
                     'pure_rk4': False,
                     'solverlu': True,
                     'v_perp': True,
                     'use_bicub_mod': True,
+                    'col_f_positivity_opt' : False,
                     'use_inquire_directory': False,
                     'use_one_d_i_cub_mod': True}
 
