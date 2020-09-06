@@ -36,6 +36,7 @@ class Cabana(CMakePackage):
 
     def cmake_args(self):
         options = [
+            '-DCMAKE_CXX_COMPILER=%s' % (self.spec['mpi'].mpicxx),
             '-DCabana_ENABLE_TESTING=ON',
             '-DCabana_ENABLE_Serial=%s'  % (
                 'On' if '+serial'  in self.spec else 'Off'),
