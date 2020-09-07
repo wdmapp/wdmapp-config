@@ -18,6 +18,9 @@ class Gem(CMakePackage):
 
     version('wdmapp', branch='wdmapp')
 
+    variant('openacc', default=False,
+            description='Enable OpenACC')
+
     depends_on('mpi')
     depends_on('blas')
     depends_on('adios +fortran')
@@ -26,5 +29,7 @@ class Gem(CMakePackage):
 
     def cmake_args(self):
         args = []
+        args += ['-DGEM_USE_OPENACC={}'.format(
+            'ON' if '+openacc' in self.spec else 'OFF')]
 
         return args
