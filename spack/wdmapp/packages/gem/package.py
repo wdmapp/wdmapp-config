@@ -26,6 +26,7 @@ class Gem(CMakePackage):
     depends_on('adios +fortran')
     depends_on('adios2@2.5.0: +fortran')
     depends_on('pspline@0.1.0:')
+    depends_on('perfstubs@kg')
 
     def cmake_args(self):
         args = []
