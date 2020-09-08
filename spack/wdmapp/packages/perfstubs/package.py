@@ -22,6 +22,8 @@ class Perfstubs(CMakePackage):
     git      = "https://github.com/khuck/perfstubs.git"
 
     version('master', branch='master')
+    version('kg', branch='dev', git='git@github.com:germasch/perfstubs.git')
+    
     variant('static', default=False, description='Build static executable support')
 
     def cmake_args(self):
