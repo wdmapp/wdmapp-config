@@ -34,8 +34,7 @@ packages:
     buildable: False
 
   kokkos:
-    variants: +cuda +openmp +volta70 +cuda_lambda +wrapper
-    compiler: [gcc@8.1.1]
+    variants: +cuda cuda_arch=70 +openmp +volta70 +cuda_lambda +wrapper
 
   # This variant hacks around broken nvcc on Summit
   kokkos-nvcc-wrapper:

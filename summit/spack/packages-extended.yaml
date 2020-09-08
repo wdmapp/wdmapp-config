@@ -24,6 +24,9 @@ packages:
       spectrum-mpi@10.3.1.2-20200121%pgi@19.9: spectrum-mpi/10.3.1.2-20200121
     buildable: false
 
+  kokkos:
+    variants: +cuda cuda_arch=70 +openmp +volta70 +cuda_lambda +wrapper
+
   fftw:
     paths:
       fftw@3.3.8%gcc@8.1.1: /sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/fftw-3.3.8-in2y7enjd3memwrmamnoxvsmx37mse7t
