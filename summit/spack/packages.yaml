@@ -36,10 +36,6 @@ packages:
   kokkos:
     variants: +cuda cuda_arch=70 +openmp +volta70 +cuda_lambda +wrapper
 
-  # This variant hacks around broken nvcc on Summit
-  kokkos-nvcc-wrapper:
-    variants: +summit
-    compiler: [gcc@8.1.1]
 
   openssl:
     paths:
