@@ -9,9 +9,6 @@ packages:
       lapack: [netlib-lapack]
       scalapack: [netlib-scalapack]
 
-  libfabric:
-    variants: fabrics=verbs
-
   # system modules externals. Uses explicit paths rather than the modules
   # feature of spack, more robust and simpler in some cases.
   spectrum-mpi:
@@ -24,6 +21,15 @@ packages:
     paths:
       cuda@10.1.243: /sw/summit/cuda/10.1.243
       cuda@11.0.3: /sw/summit/cuda/11.0.3
+    buildable: False
+
+  # build a libfabric that actually supports RDMA
+  libfabric:
+    variants: fabrics=sockets,tcp,udp,verbs,rxm
+
+  rdma-core:
+    paths:
+      rdma-core: /usr
     buildable: False
 
   kokkos:
