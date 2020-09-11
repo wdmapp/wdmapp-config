@@ -12,20 +12,26 @@ packages:
   libfabric:
     variants: fabrics=verbs
 
-  dataspaces:
-    version: [develop]
-    variants: +fpic maxdims=10 network-type=infiniband +dimes
-
   # system modules externals. Uses explicit paths rather than the modules
   # feature of spack, more robust and simpler in some cases.
   spectrum-mpi:
     modules:
       spectrum-mpi@10.3.1.2-20200121%gcc@8.1.1: spectrum-mpi/10.3.1.2-20200121
       spectrum-mpi@10.3.1.2-20200121%pgi@19.9: spectrum-mpi/10.3.1.2-20200121
-    buildable: false
+    buildable: False
+
+  cuda:
+    paths:
+      cuda@10.1.243: /sw/summit/cuda/10.1.243
+      cuda@11.0.3: /sw/summit/cuda/11.0.3
+    buildable: False
 
   kokkos:
     variants: +cuda cuda_arch=70 +openmp +volta70 +cuda_lambda +wrapper
+
+  dataspaces:
+    version: [develop]
+    variants: +fpic maxdims=10 network-type=infiniband +dimes
 
   fftw:
     paths:
@@ -52,12 +58,6 @@ packages:
     paths:
       python@3.7.0: /autofs/nccs-svm1_sw/summit/.swci/0-core/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/python-3.7.0-ei3mpdncii74xsn55t5kxpuc46i3oezn/
       python@2.7.15: /autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-8.1.1/python-2.7.15-rzeo24etdlaremohlyeb55b37gttl2iy
-
-  cuda:
-    paths:
-      cuda@10.1.243: /sw/summit/cuda/10.1.243
-      cuda@11.0.3: /sw/summit/cuda/11.0.3
-    buildable: false
 
   effis:
     version: [develop]

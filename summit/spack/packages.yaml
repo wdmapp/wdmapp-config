@@ -20,9 +20,6 @@ packages:
       cuda@11.0.3: /sw/summit/cuda/11.0.3
     buildable: False
 
-  effis:
-    version: [develop]
-
   # build a libfabric that actually supports RDMA
   libfabric:
     variants: fabrics=sockets,tcp,udp,verbs,rxm
@@ -36,6 +33,8 @@ packages:
   kokkos:
     variants: +cuda cuda_arch=70 +openmp +volta70 +cuda_lambda +wrapper
 
+  effis:
+    version: [develop]
 
   openssl:
     paths:
