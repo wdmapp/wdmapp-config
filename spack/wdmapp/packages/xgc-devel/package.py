@@ -38,10 +38,12 @@ class XgcDevel(CMakePackage):
                     'convert_grid2': False,
                     'new_flx_aif': False,
                     'deltaf_mode2': False,
+                    'pure_rk2': False,
                     'pure_rk4': False,
                     'solverlu': True,
                     'v_perp': True,
                     'use_bicub_mod': True,
+                    'col_f_positivity_opt' : False,
                     'use_inquire_directory': False,
                     'use_one_d_i_cub_mod': True}
 
@@ -55,7 +57,7 @@ class XgcDevel(CMakePackage):
     depends_on('adios2 +fortran', when='+coupling_core_edge_gene')
     depends_on('fftw@3.3.8:')
     depends_on('cabana@0.3.0', when='+cabana')
-    depends_on('kokkos@3.1 +openmp', when='+cabana')
+    depends_on('kokkos@3.1.0: +openmp', when='+cabana')
     depends_on('pspline@0.1.0')
     depends_on('camtimers@0.1.0')
     depends_on('effis@0.1.0', when='+effis')
@@ -63,6 +65,7 @@ class XgcDevel(CMakePackage):
     def cmake_args(self):
         spec = self.spec
         args = []
+        args += ['-DCMAKE_CXX_COMPILER={}'.format(spec['mpi'].mpicxx)]
         args += ['-DBUILD_TESTING=OFF']
         args += ['-DXGC_USE_ADIOS1=ON']
         args += ['-DXGC_USE_ADIOS2={}'.format(
