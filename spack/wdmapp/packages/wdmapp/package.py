@@ -20,8 +20,8 @@ class Wdmapp(BundlePackage):
 
     version('0.1.0',preferred=True)
 
-    variant('passthrough', default=False,
-            description='Enable pass-through coupler')
+    variant('externalCpl', default=False,
+            description='Enable external coupler')
     variant('xgc1_legacy', default=False,
             description='Build legacy XGC1/coupling code')
     variant('tau', default=True,
@@ -31,19 +31,17 @@ class Wdmapp(BundlePackage):
 
     # normal
     depends_on('gene@wdmapp-0.1.0 +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
-        when='~passthrough')
+        when='~externalCpl')
     depends_on('xgc-devel@wdmapp-0.1.0 +coupling_core_edge_gene -cabana +adios2',
-        when='~passthrough')
-    depends_on('coupler@master',
-        when='~passthrough')
+        when='~externalCpl')
 
-    # variant +passthrough
-    depends_on('gene@passthrough +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
-        when='+passthrough')
-    depends_on('xgc-devel@rpi +coupling_core_edge_gene -cabana +adios2',
-        when='+passthrough')
-    depends_on('coupler@develop',
-        when='+passthrough')
+    # variant +externalCpl
+    depends_on('gene@externalCpl +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
+        when='+externalCpl')
+    depends_on('xgc-devel@externalCpl +coupling_core_edge_gene -cabana +adios2',
+        when='+externalCpl')
+    depends_on('coupler@0.1.1',
+        when='+externalCpl')
 
     # variant +xgc1_legacy
     depends_on('xgc1@master +coupling_core_edge +coupling_core_edge_field +coupling_core_edge_varpi2',
@@ -54,8 +52,8 @@ class Wdmapp(BundlePackage):
 
     # variant +effis
     depends_on('effis@0.1.0 -python -compose', when='+effis')
-    depends_on('gene@wdmapp-0.1.0 +effis', when='~passthrough +effis')
-    depends_on('xgc-devel@wdmapp-0.1.0 +effis', when='~passthrough +effis')
+    depends_on('gene@wdmapp-0.1.0 +effis', when='~externalCpl +effis')
+    depends_on('xgc-devel@wdmapp-0.1.0 +effis', when='~externaCpl +effis')
 
 
     # FIXME these are hacks to avoid Spack not finding a feasible packages on its own

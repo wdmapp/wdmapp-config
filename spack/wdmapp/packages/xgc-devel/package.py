@@ -18,7 +18,7 @@ class XgcDevel(CMakePackage):
 
     version('wdmapp-0.1.0', tag='wdmapp-0.1.0', preferred=True)
     version('wdmapp', branch='wdmapp')
-    version('rpi', branch='rpi')
+    version('externalCpl', branch='rpi')
 
     variant('adios2', default=True,
             description="Enable ADIOS2 output")
