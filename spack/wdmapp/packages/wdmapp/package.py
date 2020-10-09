@@ -50,7 +50,7 @@ class Wdmapp(BundlePackage):
                when='+xgc1_legacy')
 
     # variant +tau
-    depends_on('tau@develop +adios2 ~libunwind ~pdt +mpi', when='+tau')
+    depends_on('tau@develop ~libunwind ~pdt +mpi', when='+tau')
 
     # variant +effis
     depends_on('effis@0.1.0 -python -compose', when='+effis')
