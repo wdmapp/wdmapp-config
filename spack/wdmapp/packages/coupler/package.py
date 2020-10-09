@@ -16,7 +16,7 @@ class Coupler(CMakePackage):
 
     maintainers = ['cwsmith','Damilare06','phyboyzhang']
 
-    version('0.1.0', tag='v0.1.0', preferred=True)
+    version('0.2.0', tag='v0.2.0', preferred=True)
     version('develop', branch='develop',
       git="git@github.com:SCOREC/wdmapp_coupling.git")
 

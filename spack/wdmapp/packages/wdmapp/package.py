@@ -40,9 +40,9 @@ class Wdmapp(BundlePackage):
     # variant +externalCpl
     depends_on('gene@externalCpl +adios2 +futils +wdmapp +diag_planes perf=perfstubs',
         when='+externalCpl')
-    depends_on('xgc-devel@rpi +coupling_core_edge_gene -cabana +adios2',
+    depends_on('xgc-devel@externalCpl +coupling_core_edge_gene -cabana +adios2',
         when='+externalCpl')
-    depends_on('coupler@wdmapp-0.1.0',
+    depends_on('coupler@0.2.0',
         when='+externalCpl')
 
     # variant +xgc1_legacy
