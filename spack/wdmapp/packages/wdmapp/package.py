@@ -42,7 +42,7 @@ class Wdmapp(BundlePackage):
         when='+externalCpl')
     depends_on('xgc-devel@externalCpl +coupling_core_edge_gene -cabana +adios2',
         when='+externalCpl')
-    depends_on('coupler@0.2.0',
+    depends_on('coupler@0.1.1',
         when='+externalCpl')
 
     # variant +xgc1_legacy
