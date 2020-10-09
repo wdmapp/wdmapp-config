@@ -7,11 +7,11 @@ Follow the instructions from the `Spack Documentation
 
 .. code-block:: sh
 
-   $ git clone -b releases/v0.14 https://github.com/spack/spack.git
+   $ git clone -b v0.15.4 https://github.com/spack/spack.git
    
 .. note::
 
-   v0.14 is the latest spack stable version on 2020-03-17; newer versions
+   v0.15.4  is the latest spack stable version on 2020-10-20; newer versions
    will likely work but have not been tested. Using the default 'develop'
    branch is not recommended, as it does break sometimes and introduces
    a lot of package version churn if you try to track it.
