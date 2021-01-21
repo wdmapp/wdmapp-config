@@ -1,0 +1,85 @@
+spack:
+  config:
+    install_tree: /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/wdmapp-deps-nvhpc
+    module_roots:
+      lmod: /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/wdmapp-deps-nvhpc/lmod
+    concretization: together
+  repos:
+  - /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/wdmapp-config/spack/wdmapp/
+  mirrors:
+    wdmSources: file:///gpfs/u/home/MPFS/MPFSsmth/barn/wdmapp/spack-mirror-21-01-21
+  view: false
+  specs:
+  - cmake
+  - pspline
+  packages:
+    all:
+      compiler: [nvhpc@20.11, gcc@8.4.0]
+      providers:
+        mpi: [openmpi@3.1.5]
+      version: []
+      target: []
+      buildable: true
+    openmpi:
+      externals:
+      - spec: openmpi@3.1.5
+        prefix: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/comm_libs/mpi/
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+      version: []
+    cmake:
+      externals:
+      - spec: cmake@3.18.4
+        prefix: /gpfs/u/software/dcs-spack-install/vDev1b33008_1/linux-rhel7-power9le/gcc-8.4.0/cmake-3.18.4-vsxvprd6nhbwhlvjb23bumekhbc2bpd6/
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+      version: []
+    cuda:
+      externals:
+      - spec: cuda@11.1
+        prefix: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/cuda/11.1/
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+    slurm:
+      externals:
+      - spec: slurm@system
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+  compilers:
+  - compiler:
+      spec: nvhpc@20.11
+      paths:
+        cc: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvc
+        cxx: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvc++
+        f77: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvfortran
+        fc: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: [/opt/nvidia/hpc_sdk/modulefiles/nvhpc/20.11]
+      environment: {unset: []}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.4.0
+      paths:
+        cc: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gcc
+        cxx: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/g++
+        f77: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gfortran
+        fc: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
