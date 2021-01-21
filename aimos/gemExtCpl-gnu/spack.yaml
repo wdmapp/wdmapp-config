@@ -1,0 +1,66 @@
+spack:
+  config:
+    install_tree: /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/xgcu-gem-cpl-gnu
+    module_roots:
+      lmod: /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/xgcu-gem-cpl-gnu/lmod
+    concretization: together
+  repos:
+  - /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/wdmapp-config/spack/wdmapp/
+  view: false
+  specs:
+  - xgc-user@gemExtCpl
+    #- gem@gemExtCpl
+    #- coupler@gemExtCpl
+  packages:
+    all:
+      compiler: [gcc@8.4.0]
+      providers:
+        mpi: [openmpi@4.0.5]
+      version: []
+      target: []
+    openmpi:
+      version: [4.0.5]
+      variants: +cuda +pmi +thread_multiple schedulers=slurm fabrics=ucx
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cmake:
+      version: [3.18.4]
+      variants: ~doc ~ncurses
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cuda:
+      externals:
+      - spec: cuda@10.2
+        prefix: /usr/local/cuda-10.2
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+    slurm:
+      externals:
+      - spec: slurm@system
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+  compilers:
+  - compiler:
+      spec: gcc@8.4.0
+      paths:
+        cc: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gcc
+        cxx: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/g++
+        f77: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gfortran
+        fc: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []

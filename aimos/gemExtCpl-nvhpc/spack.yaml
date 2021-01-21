@@ -1,0 +1,67 @@
+spack:
+  config:
+    install_tree: /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/xgcu-gem-cpl
+    module_roots:
+      lmod: /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/xgcu-gem-cpl/lmod
+    concretization: together
+  repos:
+  - /gpfs/u/barn/MPFS/MPFSsmth/wdmapp/wdmapp-config/spack/wdmapp/
+  view: false
+  specs:
+  - xgc-user@gemExtCpl
+  - gem@gemExtCpl
+  - coupler@gemExtCpl
+  packages:
+    all:
+      compiler: [nvhpc@20.11]
+      providers:
+        mpi: [openmpi@3.1.5]
+      version: []
+      target: []
+    openmpi:
+      externals:
+      - spec: openmpi@3.1.5
+        prefix: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/comm_libs/mpi/
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+    cmake:
+      version: [3.18.4]
+      variants: ~doc ~ncurses
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cuda:
+      externals:
+      - spec: cuda@11.1
+        prefix: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/cuda/11.1/
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+    slurm:
+      externals:
+      - spec: slurm@system
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+  compilers:
+  - compiler:
+      spec: nvhpc@20.11
+      paths:
+        cc: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvc
+        cxx: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvc++
+        f77: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvfortran
+        fc: /opt/nvidia/hpc_sdk/Linux_ppc64le/20.11/compilers/bin/nvfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: [/opt/nvidia/hpc_sdk/modulefiles/nvhpc/20.11]
+      environment: {unset: []}
+      extra_rpaths: []
