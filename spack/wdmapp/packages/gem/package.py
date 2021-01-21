@@ -17,6 +17,8 @@ class Gem(CMakePackage):
     maintainers = ['germasch', 'jycheng1989']
 
     version('wdmapp', branch='wdmapp')
+    version('gemExtCpl', branch='gemcmake',
+      git = "https://github.com/phyboyzhang/GEM-parallel-coupling.git")
 
     variant('openacc', default=False,
             description='Enable OpenACC')

@@ -19,6 +19,8 @@ class Coupler(CMakePackage):
     version('0.1.1', tag='v0.1.1', preferred=True)
     version('develop', branch='develop',
       git="git@github.com:SCOREC/wdmapp_coupling.git")
+    version('gemExtCpl', branch='gemxgc',
+      git="https://github.com/Damilare06/wdmapp_coupling.git")
 
     depends_on('pkgconfig', type='build')
     depends_on('cmake@3.13:', type='build')
