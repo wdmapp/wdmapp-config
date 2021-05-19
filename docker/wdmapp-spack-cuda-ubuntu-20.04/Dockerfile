@@ -50,3 +50,20 @@ RUN spack env activate wdmapp-env \
     && spack add cuda thrust \
     && spack install && spack clean -a
 
+# for GENE
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+    pkg-config liblapack-dev libscalapack-openmpi-dev libfftw3-dev && \
+    update-alternatives --install /usr/lib/x86_64-linux-gnu/libscalapack.so libscalapack.so /usr/lib/x86_64-linux-gnu/libscalapack-openmpi.so 10 && \
+    update-alternatives --install /usr/bin/python python /usr/bin/python3 20
+
+RUN spack env activate wdmapp-env && \
+    spack add pfunit@3.3.3:3.3.99+mpi max_array_rank=6 && \
+    spack install
+
+# for XGC
+RUN spack env activate wdmapp-env && \
+    spack add petsc@3.7.7 ~complex +double && \
+    spack install
+
+
