@@ -33,7 +33,7 @@ RUN spack config --scope system add "packages:all:target: [haswell]" \
     echo "  libpng: {externals: [{spec: libpng@1.6.37, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  c-blosc: {externals: [{spec: c-blosc@1.17.1, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
     echo "  snappy: {externals: [{spec: snappy@1.1.8, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
-    echo "  hdf5: {externals: [{spec: hdf5@1.10.4 +hl +fortran, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
+    echo "  hdf5: {externals: [{spec: hdf5@1.10.4 +hl +fortran, prefix: /usr/lib/x86_64-linux-gnu/hdf5/openmpi}]}" >> /etc/spack/packages.yaml && \
     echo "  libsodium: {externals: [{spec: libsodium@1.0.17, prefix: /usr}]}" >> /etc/spack/packages.yaml
 
 #    echo "  sz: {externals: [{spec: sz@1.0.4, prefix: /usr}]}" >> /etc/spack/packages.yaml && \
