@@ -1,0 +1,25 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [adios2, cuda, thrust, 'pfunit@3.3.3:3.3.99+mpi max_array_rank=6', petsc~complex+double,
+    kokkos +cuda +cuda_lambda cuda_arch=70 +wrapper, cabana +cuda ^kokkos +cuda +cuda_lambda
+      cuda_arch=70 +wrapper, googletest, pspline, camtimers]
+  view: true
+  compilers:
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
