@@ -64,6 +64,9 @@ RUN spack env activate wdmapp-env && \
 # for XGC
 RUN spack env activate wdmapp-env && \
     spack add petsc ~complex +double && \
+    spack add kokkos && \
+    spack add cabana && \
+    spack add googletest && \
     spack install
 
 
