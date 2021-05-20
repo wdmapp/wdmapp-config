@@ -76,10 +76,11 @@ RUN spack env create xgc-env && \
     spack add petsc ~complex +double && \
     spack add kokkos && \
     spack add cabana && \
-    spack add googletest && \
-    spack add pspline && \
     spack add camtimers && \
+    spack add googletest && \
     spack install && spack clean -a
+
+#    spack add pspline && \
 
 # xgc-cuda-env
 RUN spack env create xgc-cuda-env && \
@@ -89,9 +90,10 @@ RUN spack env create xgc-cuda-env && \
     spack add petsc ~complex +double && \
     spack add kokkos +cuda +cuda_lambda cuda_arch=70 +wrapper && \
     spack add cabana ^kokkos +cuda +cuda_lambda cuda_arch=70 +wrapper && \
-    spack add googletest && \
-    spack add pspline && \
     spack add camtimers && \
+    spack add googletest && \
     spack install && spack clean -a
+
+#    spack add pspline && \
 
 
