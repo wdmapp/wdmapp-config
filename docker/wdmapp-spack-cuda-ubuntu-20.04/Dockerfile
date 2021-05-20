@@ -72,7 +72,7 @@ RUN spack env activate wdmapp-env && \
 # xgc-env
 RUN spack env create xgc-env && \
     spack env activate xgc-env && \
-    spack add adios2 \
+    spack add adios2 && \
     spack add petsc ~complex +double && \
     spack add kokkos && \
     spack add cabana && \
@@ -84,8 +84,8 @@ RUN spack env create xgc-env && \
 # xgc-cuda-env
 RUN spack env create xgc-cuda-env && \
     spack env activate xgc-cuda-env && \
-    spack add cuda \
-    spack add adios2 \
+    spack add cuda && \
+    spack add adios2 && \
     spack add petsc ~complex +double && \
     spack add kokkos +cuda +cuda_lambda cuda_arch=70 +wrapper && \
     spack add cabana ^kokkos +cuda +cuda_lambda cuda_arch=70 +wrapper && \
