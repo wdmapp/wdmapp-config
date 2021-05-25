@@ -1,6 +1,6 @@
 
 ARG VARIANT="ubuntu-20.04"
-FROM ghcr.io/wdmapp/spack-${VARIANT}:latest
+FROM ghcr.io/wdmapp/spack-cuda-${VARIANT}:latest
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
@@ -47,5 +47,53 @@ COPY spack/ spack
 RUN spack repo add --scope system spack/wdmapp
 
 RUN spack env activate wdmapp-env \
-    && spack add googletest \
+    && spack add cuda thrust \
     && spack install && spack clean -a
+
+# for GENE
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+    pkg-config liblapack-dev libscalapack-openmpi-dev libfftw3-dev && \
+    update-alternatives --install /usr/lib/x86_64-linux-gnu/libscalapack.so libscalapack.so /usr/lib/x86_64-linux-gnu/libscalapack-openmpi.so 10 && \
+    update-alternatives --install /usr/bin/python python /usr/bin/python3 20
+
+RUN spack env activate wdmapp-env && \
+    spack add pfunit@3.3.3:3.3.99+mpi max_array_rank=6 && \
+    spack install
+
+# for XGC
+RUN spack env activate wdmapp-env && \
+    spack add petsc ~complex +double && \
+    spack add kokkos && \
+    spack add cabana && \
+    spack add googletest && \
+    spack install
+
+# xgc-env
+RUN spack env create xgc-env && \
+    spack env activate xgc-env && \
+    spack add adios2 && \
+    spack add petsc ~complex +double && \
+    spack add kokkos && \
+    spack add cabana && \
+    spack add camtimers && \
+    spack add googletest && \
+    spack install && spack clean -a
+
+#    spack add pspline && \
+
+# xgc-cuda-env
+RUN spack env create xgc-cuda-env && \
+    spack env activate xgc-cuda-env && \
+    spack add cuda && \
+    spack add adios2 && \
+    spack add petsc ~complex +double && \
+    spack add kokkos +cuda +cuda_lambda cuda_arch=70 +wrapper && \
+    spack add cabana ^kokkos +cuda +cuda_lambda cuda_arch=70 +wrapper && \
+    spack add camtimers && \
+    spack add googletest && \
+    spack install && spack clean -a
+
+#    spack add pspline && \
+
+

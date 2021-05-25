@@ -94,87 +94,87 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
-  # spack-cuda-ubuntu-20-04:
-  #   runs-on: ubuntu-latest
-  #   steps:
+  spack-cuda-ubuntu-20-04:
+    runs-on: ubuntu-latest
+    steps:
 
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - name: Set up Docker Buildx
-  #       id: buildx
-  #       uses: docker/setup-buildx-action@v1
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
 
-  #     - name: Cache Docker layers
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: /tmp/.buildx-cache
-  #         key: ${{ runner.os }}-buildx-cache-${{ github.sha }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-buildx-cache
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-cache-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-cache
   
-  #     - name: Login to ghcr
-  #       if: github.event_name != 'pull_request'
-  #       uses: docker/login-action@v1
-  #       with:
-  #         registry: ghcr.io
-  #         username: ${{ github.actor }}
-  #         password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to ghcr
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-  #     - name: Build and push
-  #       id: docker_build
-  #       uses: docker/build-push-action@v2
-  #       with:
-  #         context: .
-  #         file: docker/spack-cuda-ubuntu-20.04/Dockerfile
-  #         builder: ${{ steps.buildx.outputs.name }}
-  #         push: true
-  #         tags: ghcr.io/psc-code/spack-cuda-ubuntu-20.04:latest
-  #         cache-from: type=local,src=/tmp/.buildx-cache
-  #         cache-to: type=local,dest=/tmp/.buildx-cache
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: docker/spack-cuda-ubuntu-20.04/Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ghcr.io/wdmapp/spack-cuda-ubuntu-20.04:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
 
-  #     - name: Image digest
-  #       run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
 
-  # psc-spack-cuda-ubuntu-20-04:
-  #   needs: spack-cuda-ubuntu-20-04
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  wdmapp-spack-cuda-ubuntu-20-04:
+    needs: spack-cuda-ubuntu-20-04
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - name: Set up Docker Buildx
-  #       id: buildx
-  #       uses: docker/setup-buildx-action@v1
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
 
-  #     - name: Cache Docker layers
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: /tmp/.buildx-cache
-  #         key: ${{ runner.os }}-buildx-cache-${{ github.sha }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-buildx-cache
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-cache-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-cache
   
-  #     - name: Login to ghcr
-  #       if: github.event_name != 'pull_request'
-  #       uses: docker/login-action@v1
-  #       with:
-  #         registry: ghcr.io
-  #         username: ${{ github.actor }}
-  #         password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to ghcr
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-  #     - name: Build and push
-  #       id: docker_build
-  #       uses: docker/build-push-action@v2
-  #       with:
-  #         context: .
-  #         file: docker/psc-spack-cuda-ubuntu-20.04/Dockerfile
-  #         builder: ${{ steps.buildx.outputs.name }}
-  #         push: true
-  #         tags: ghcr.io/psc-code/psc-spack-cuda-ubuntu-20.04:latest
-  #         cache-from: type=local,src=/tmp/.buildx-cache
-  #         cache-to: type=local,dest=/tmp/.buildx-cache
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: docker/wdmapp-spack-cuda-ubuntu-20.04/Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ghcr.io/wdmapp/wdmapp-spack-cuda-ubuntu-20.04:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
 
-  #     - name: Image digest
-  #       run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
 
