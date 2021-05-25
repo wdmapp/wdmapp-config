@@ -2,7 +2,7 @@ name: ubuntu-20.04 + spack based docker images
 
 on:
   push:
-    branches: [ main, pr/* ]
+    branches: [ main, test/* ]
 
   pull_request:
     branches: [ main ]
