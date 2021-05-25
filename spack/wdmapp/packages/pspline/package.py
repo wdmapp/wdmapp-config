@@ -15,6 +15,7 @@ class Pspline(CMakePackage):
 
     maintainers = ['germasch', 'bd4']
 
-    version('0.1.0', tag='v0.1.0', preferred=True)
+    version('0.1.1', tag='v0.1.1', preferred=True)
+    version('0.1.0', tag='v0.1.0')
     version('master', branch='master')
 
