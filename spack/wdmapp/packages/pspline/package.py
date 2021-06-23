@@ -11,7 +11,7 @@ class Pspline(CMakePackage):
 
     homepage = "https://w3.pppl.gov/ntcc/PSPLINE/"
     url      = "https://github.com/wdmapp/pspline.tar.gz"
-    git      = "git@github.com:wdmapp/pspline.git"
+    git      = "https://github.com/wdmapp/pspline.git"
 
     maintainers = ['germasch', 'bd4']
 
