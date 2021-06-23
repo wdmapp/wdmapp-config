@@ -13,7 +13,7 @@ class Camtimers(CMakePackage):
     homepage = "https://github.com/wdmapp/camtimers"
     # FIXME, there is no tarball, but it still needs a URL, so it's fake
     url      = "https://github.com/wdmapp/camtimers.tar.gz"
-    git      = "git@github.com:wdmapp/camtimers.git"
+    git      = "https://github.com/wdmapp/camtimers.git"
 
     maintainers = ['germasch', 'bd4']
 
